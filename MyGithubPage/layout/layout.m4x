@@ -1,0 +1,168 @@
+dnl -*- m4 -*- Coloration Syntaxique pour Emacs
+dnl #####################################################################
+dnl Head menu.
+dnl The head menu is composed of two horizontal menus: the primary and
+dnl the secondary. The primary showdisplays the website categories while
+dnl the secondary displays differents articles.
+dnl #####################################################################
+dnl Helper macros for building head menu (primary and secondary)
+define([display_all_menu_elements_],[ifelse($2,,,$2,THISFILE,[<li id="_which_menu_item_active_">$1</li> display_all_menu_elements_(shift(shift($@)))],
+[<li><a href="$2-]LANG[.html">$1</a></li>
+display_all_menu_elements_(shift(shift($@)))])])dnl
+define([HEAD_MENU],[<div id="$1">
+<ul class="$2">
+define([_which_menu_item_active_],[$3])
+display_all_menu_elements_(shift(shift(shift($@))))
+undefine([_which_menu_item_active_])
+</ul>
+</div>])dnl
+dnl ---------------------------------------------------------------------
+define([primary_head_menu],[<!-- Primary Menu --> HEAD_MENU(header2,rubriques2,actif2,$@)])
+define([secondary_head_menu],[<!-- Secondary Menu --> HEAD_MENU(header3,rubriques3,actif3,$@)])
+dnl ---------------------------------------------------------------------
+dnl Define head menu items
+define([ITEM_HOME],[ICON_HOME[]TRANSLATE([Accueil],[Home])])
+define([ITEM_EMBARQUE],[ICON_GEAR[]TRANSLATE([Systèmes embarqués],[Embedded systems])])
+define([ITEM_3D],[ICON_EYES[]TRANSLATE([Projets informatiques],[3D])])
+define([ITEM_CV],[ICON_READ[]TRANSLATE([Stages &amp; CV],[Internships &amp; CV])])
+define([ITEM_TUTO],[ICON_READ[]TRANSLATE([Tutoriels],[Tutorials])])
+dnl ---------------------------------------------------------------------
+dnl Define different menus
+define([PRIMARY_HEAD_MENU_1],[primary_head_menu(ITEM_HOME,index,ITEM_EMBARQUE,helico_intro,ITEM_3D,ecstasy,ITEM_TUTO,tuto_scicos)])
+define([SECONDARY_HEAD_MENU_HOME],[secondary_head_menu(Home,index,Plan du site,plansite,Mises à jour,maj,C.V.,cv)])
+define([SECONDARY_HEAD_MENU_EMBARQUE],[secondary_head_menu(Hélicoptère 4 rotors,helico_intro,Voiture CyCab,stages_travail2)])
+define([SECONDARY_HEAD_MENU_3D],[secondary_head_menu(Ecstasy,ecstasy,SpeedWay,speedway,SimTaDyn,simtadyn,Interpréteur Forth,forth)])
+define([SECONDARY_HEAD_MENU_TUTO],[secondary_head_menu(Logiciels Scilab/Scicos,tuto_scicos,Logiciel SynDEx,tuto_syndex,BSP,tuto_bsp,Dynamique d'une voiture,tuto_dyna,)])
+define([SECONDARY_HEAD_MENU_CV],[secondary_head_menu(Mon C.V.,cv,Mes stages à l'INRIA,stages_travail2)])
+dnl ---------------------------------------------------------------------
+dnl Select the desired menu with this macro
+define([SECONDARY_HEAD_MENU],[define([_SECONDARY_HEAD_MENU_],[$1])])dnl
+define([PRIMARY_HEAD_MENU],[define([_PRIMARY_HEAD_MENU_],[$1])])dnl
+PRIMARY_HEAD_MENU(PRIMARY_HEAD_MENU_1)dnl Ok there is no selection possible for the moment
+dnl #####################################################################
+dnl Left menu.
+dnl The left menu is a set of rubriques. A rubrique is a list of items.
+dnl An example of rubrique is the table of contents where items are links
+dnl to sections of the document.
+dnl #####################################################################
+dnl ---------------------------------------------------------------------
+define([ITEM_BULLET],[ifelse($1,,[],[<li><a href="$2"><img class="icone7" src="img/bullet.gif" alt=""/>$1.</a></li>])])
+define([display_all_items_],[ifelse($2,,,[ITEM_BULLET($1,$2)
+display_all_items_(shift(shift($@)))])])
+dnl ---------------------------------------------------------------------
+define([LEFT_RUBRIQUE],[<!-- Left Rubrique -->
+ifelse($1,,[],[<h1>$1 :</h1>])
+<ul class="items">
+display_all_items_(shift($@))
+</ul>])
+dnl #####################################################################
+dnl Banners, Logos, License, Validators ...
+dnl #####################################################################
+define([BADGES],[<hr/>DISP_UPDATE
+<hr/><!-- Bannieres menu -->
+DISP_LICENSE CREATIVECOMMONS LICENSE_CODE
+<table width="10BA0%" align="center">
+<tr><td rowspan="3">LICENSE_LOGO</td><td>XHTML_VALIDATOR</td></tr>
+<tr><td>CSS_VALIDATOR</td></tr>
+<tr><td>PHPMYVISITE</td></tr>
+</table><hr/>])
+dnl #####################################################################
+dnl HTML template: the page is a html table
+dnl --------------------
+dnl        title
+dnl --------------------
+dnl    Primary header
+dnl --------------------
+dnl   Secondary header
+dnl --------------------
+dnl left menu | article
+dnl --------------------
+dnl        Footer
+dnl #####################################################################
+define([BEGIN_BODY],[divert(DIVERT_BODY)])
+define([END_BODY],[divert(DIVERT_FOOTER)
+divert
+HTML_HEADER
+<!-- BEGIN DOCUMENT -->
+<table id="page">
+  <!-- BEGIN DOCUMENT HEADER -->
+
+  <!-- BEGIN ARTICLE [TITLE] -->
+  <tr>
+    <td colspan="2">
+      <div id="header1">
+        _META_TITLE_
+      </div>
+    </td>
+    <td id="right_top_navigation"></td>
+  </tr>
+  <!-- END ARTICLE [TITLE] -->
+
+  <!-- BEGIN WEBPAGE MAIN MENU -->
+  <tr>
+    <td colspan="2">
+      _PRIMARY_HEAD_MENU_
+    </td>
+    <td id="right_navigation"></td>
+  </tr>
+  <!-- END WEBPAGE MAIN MENU -->
+
+  <!-- BEGIN WEBPAGE SUBMENU -->
+  <tr>
+    <td colspan="2">
+      _SECONDARY_HEAD_MENU_
+    </td>
+    <td id="right_navigation"></td>
+  </tr>
+  <!-- END WEBPAGE SUBMENU -->
+  <!-- END DOCUMENT HEADER -->
+
+  <!-- BEGIN DOCUMENT BODY -->
+  <tr>
+    <!-- BEGIN LEFT MENU -->
+    <td id="left_navigation">
+        <!-- BEGIN USER NAVIGATION MENU -->
+        <div id="menu">
+           CHANGE_LANGUAGE
+           <!-- Begin sommaire -->
+           <h1>TOC:</h1>
+           <ul class="items">
+           TABLE_OF_CONTENTS
+           </ul>
+           <!-- end sommaire -->
+           undivert(DIVERT_LEFT_MENU)
+           BADGES
+        </div>
+        <!-- END USER NAVIGATION MENU -->
+    </td>
+    <!-- END LEFT MENU -->
+
+    <!-- BEGIN ARTICLE BODY -->
+    <td id="content">
+        <!-- BEGIN USER BODY -->
+        undivert(DIVERT_BODY)
+        </div>
+        <!-- END USER BODY -->
+    </td>
+    <!-- END ARTICLE BODY -->
+
+    <!-- BEGIN RIGHT MENU -->
+    <td id="right_navigation"></td>
+    <!-- END RIGHT MENU -->
+  </tr>
+  <!-- END DOCUMENT BODY -->
+
+  <!-- BEGIN DOCUMENT FOOTER -->
+  <tr>
+    <td colspan="3" id="footer">
+          <!-- BEGIN USER FOOTER -->
+          undivert(DIVERT_FOOTER)
+          FOOTER_BOX($@)
+          <!-- END USER FOOTER -->
+    </td>
+  </tr>
+  <!-- END DOCUMENT FOOTER -->
+</table>
+<!-- END DOCUMENT -->
+HTML_FOOTER
+<!-- EOF -->])dnl
