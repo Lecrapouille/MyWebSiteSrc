@@ -1,0 +1,3 @@
+[submodule "WebSiteGenerator"]
+	path = WebSiteGenerator
+	url = https://github.com/Lecrapouille/WebSiteGenerator.git
