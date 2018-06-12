@@ -4,8 +4,7 @@ KEYWORDS(3D Game, Delphi, OpenGL, EPITA)
 DESCRIPTION(3D game made opengl and delphi)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
-BEGIN_HEADINS(LEFT_RUBRIQUE(AA,BB,CC)
-LEFT_RUBRIQUE(DD,EE,FF,HH,II))
+LEFT_HEADINGS(HEADING(AA,BB,CC) HEADING(DD,EE,FF,HH,II))
 
 BEGIN_BODY
 SECTION(Le projet SpeedWay)
@@ -39,7 +38,7 @@ SUBSECTION(ICON_DOWNLOAD,Téléchargement,download)
    Borland (version 5 de mémoire) pour compiler les sources. Certaines
    ressources graphiques et sonores n'y ont pas été mises sur le repo
    git (pour des soucis de poids) mais vous pouvez les télécharger
-   ci-dessous.
+   ci-dessous.</p>
 
 TABLE(3,LINK(speedway/speedway_soutenance4.pdf,Le
 rapport),LINK(speedway/speedway.rar,SpeedWay version
