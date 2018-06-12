@@ -1,17 +1,13 @@
-divert(DIVERT_HEADER)
-
 TITLE(Projet SpeedWay)
+AUTHOR(Quentin Quadrat,Creative Common)
 KEYWORDS(3D Game, Delphi, OpenGL, EPITA)
 DESCRIPTION(3D game made opengl and delphi)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
-divert(DIVERT_LEFT_MENU)
+BEGIN_HEADINS(LEFT_RUBRIQUE(AA,BB,CC)
+LEFT_RUBRIQUE(DD,EE,FF,HH,II))
 
-LEFT_RUBRIQUE(AA,BB,CC)
-LEFT_RUBRIQUE(DD,EE,FF,HH,II)
-
-divert(DIVERT_BODY)
-
+BEGIN_BODY
 SECTION(Le projet SpeedWay)
 SUBSECTION(ICON_READ,Présentation,intro)
 
@@ -137,7 +133,5 @@ LIST(OpenGl et Delphi :
 
             Le site de GameTutorials : EXTLINK(http://www.gametutorials.com/).)
 )
-
-divert(DIVERT_FOOTER)
 
 END_BODY(,,ecstasy,Le projet Ecstasy)
