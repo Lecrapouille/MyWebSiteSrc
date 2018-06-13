@@ -351,7 +351,8 @@ td {
 }
 
 .code {
-    background-color:   #ccc;
+     background-color:  #fff;
+     width:             93%;
      border:            1px dotted #69c;
      margin:            10px 0 0 20px;
      padding:           0 1em;
