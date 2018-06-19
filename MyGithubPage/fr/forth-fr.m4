@@ -8,16 +8,16 @@ BEGIN_BODY
 SECTION(Le langage Forth)
 SUBSECTION(ICON_READ,Références à Forth,ref)
 
-<p>Ce document est une tentative de faire découvrir ou faire
-redécouvrir ce langage, d'expliquer son fonctionnement interne ainsi
-que de mieux faire comprendre certains mots dits STRONG(de haut
-niveau). Avant de commencer ce tutoriel, voici une sélection
-d'ouvrages et de liens concernant le langage Forth que je recommande.
-Avant de poursuivre la lecture de cet article, je suggère aux lecteurs
-qui n'ont jamais connu ce langage de s'initier avec les deux premiers
-liens puis, si possible d'acheter le livre de W.P. Salman,
-O. Tisserand, B. Toulout qui est le livre qui explique le mieux
-comment Forth fonctionne et de façon complète.</p>
+<p>Ce document est une tentative de faire découvrir ou redécouvrir ce
+langage qu'est Forth, d'expliquer son fonctionnement interne ainsi que
+de mieux faire comprendre certains mots dits STRONG(de hauts
+niveaux). Avant de commencer ce tutoriel, voici une sélection
+d'ouvrages et de liens que je recommande concernant ce langage.  Avant
+de poursuivre la lecture de cet article, je suggère aux lecteurs qui
+n'ont jamais connu ce langage de s'initier avec les deux premiers
+liens puis, si possible le livre de W.P. Salman, O. Tisserand,
+B. Toulout qui est ma référence sur le fonctionnement interne du
+Forth.</p>
 
 LIST(
 ICON_FR EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,Un cours)
@@ -138,17 +138,17 @@ résumé à :</p>
 
 LIST(un langage à piles;,
 
-un langage extensible et auto-évolutif (ré-entrance[,] métaprogrammtion);,
+un langage extensible avec une syntaxe auto-évolutive (ré-entrance[,] métaprogrammtion);,
 
 semi-compilé (embarquant son propre compilateur hybridé avec un interpréteur);,
 
 peut être vu comme un système d'exploitation car il est à la fois un
-langage[,] une machine virtuelle et sait gérer sa propre mémoire de
-masse et dispose d'entrées/sorties;,
+langage[,] une machine virtuelle car Forth sait gérer sa propre
+mémoire de masse et dispose d'entrées/sorties;,
 
 il est à la fois un langage bas-niveau (manipulant de l'assembleur et
 des registres hardware) et un langage haut-niveau (abstraction des
-données[,] faible couplage[,] etc);,
+données[,] faible couplage[,] peut être orienté objet[,] etc);,
 
 bien que la plupart des langages soient complets au sens de Turing[,]
 Forth offre à l'utilisateur la possibilité d'accéder directement aux
@@ -173,19 +173,19 @@ grammaire ambiguë, ne nécessite pas de rétro-action lexicale, etc.  Un
 script Forth est une simple suite de ITALIC(symboles) (au sens théorie
 des langages: unité lexicale alias tokens) séparés par des espaces. Il
 n'y a aucune syntaxe. Par conséquent un interpréteur Forth, quand il
-va exécuter un script (qui sera donné sur le flux d'entrée), n'a
+va exécuter un script (qui sera donné sur son flux d'entrée), n'a
 besoin que d'extraire le mot courant (qui doit être soit un mot qui
 lui est ITALIC(connu), soit un nombre) et parfois le mot suivant
 (quand celui-ci n'est pas encore ITALIC(connu), comme par exemple lors
 de la définition d'un nouveau mot). Dans la suite de ce document, on
-expliquera ce que le verbe ITALIC(connaître) signifie concrêtement.</p>
+expliquera ce que le verbe connaître signifie concrêtement.</p>
 
 <p>Par convention un token est appelé STRONG(mot) (word en anglais) et
 leur signification est proche de celle du langage naturel
 humain. Egalement par convention, un mot Forth est formé de n'importe
 quelle suite de caractères ASCII dont, historiquement, la taille
-maximale est 31 caractères ASCII mais cette limitation a disparue sur
-certains Forth tels que gForth.</p>
+maximale est 31 caractères ASCII (mais cette limitation a disparue sur
+certains Forth tels que gForth).</p>
 
 <p>Cette absence de syntaxe s'explique facilement: Forth utilise la
 notation polonaise inversée (Reverse Polish notation) à savoir que les
@@ -225,7 +225,7 @@ des parenthèses :</p> CODE[]display(2 + (3 * 4));
 END_CODE
 
 <p>puis aurait généré un AST similaire à:</p>
-CODE[]    display
+CODE[]     display
        /
       +
      / \
@@ -237,46 +237,65 @@ END_CODE
 <p>En langage LISP, grâce à sa syntaxe représentant des arbres, on
   aurait implicitement l'AST car on aurait écrit quelque chose
   d'approchant à :</p>
-CODE[](display (* (+ 2 3) 4))
+CODE[](display (+ (* 3 4) 2))
 END_CODE
 
-<p>Un compilateur aurait analysé l'AST un certain nombre de fois pour
-générer des AST intermédiaires contenant des pseudo-instructions de
-plus en plus proche de l'assembleur de la machine cible. Le
-compilateur aurait également généré un graphe colorié afin de
-connaître le nombre minimal de variables/registres nécessaires (ici un
-registre pour stocker le résultat 14), etc.</p>
+<p>Un compilateur C aurait itérer un certain nombre fois une analyse
+de l'AST pour en créer des AST contenant des pseudo-instructions de
+plus en plus proche de l'assembleur de la machine cible. Il aurait
+également généré un graphe colorié afin de connaître le nombre minimal
+de registres nécessaires pour les variables locales (par exemple dans
+notre cas, un registre pour stocker le résultat 14), etc.</p>
 
-<p>En comparaison, le travail de l'interpréteur Forth est très
-trivial: il extrait les symboles à la volée et de gauche à droite, il
-empile les nombres qu'il rencontre et exécute les opérandes. Chaque
-opérande va consommer une certaine quantité de nombres stockés dans
-cette pile puis empile le résulat dedans. La section
-suivante va expliquer mieux ce.</p>
+<p>En comparaison, le travail de l'interpréteur Forth est assez
+trivial: il se contente d'extraitre les symboles à la volée (et de
+gauche à droite), il empile les nombres qu'il rencontre et exécute les
+opérandes (les mots Forth). Chaque mot va consommer une certaine
+quantité de valeurs dans cette pile puis empilera le résulat (si
+résultat il y a). La section suivante expliquera mieux ce
+processus.</p>
+
+<p>Si l'on désire définir un nouveau mot Forth, on utilisera les mots
+Forth STRONG(:) et STRONG(;) comme par exemple:</p>
+CODE[]: GREEN(MON-CALCUL) RED(2 3 4) * + ORANGE(;)
+END_CODE
+
+<p>On se doute que MON-CALCUL est un mot Forth inconnu. Si
+l'interpréteur tente de l'éxécute il echouera. C'est l'exécution du
+mot STRONG(:) qui va indiquer au compilateur Forth que le mot suivant
+(à savoir MON-CALCUL) ne doit pas être interprété mais utilisé. Nous y
+reviendrons plus tard avec les mots Forth de hauts niveaux.</p>
 
 SUBSECTION(ICON_GEAR,Forth un langage à piles,pile)
 
 <p>Le lecteur notera, dans le titre, l'utilisation du pluriel pour le
-mot ITALIC(pile). Nous allons voir que Forth utilise deux piles.</p>
+   mot
+   EXTLINK(https://fr.wikipedia.org/wiki/Pile_(informatique),pile). Nous
+   allons voir ici que Forth utilise deux piles: -- une pile pour les
+   données (nommée data stack); -- une pile pour l'exécution des mots
+   (nommée return stack).</p>
 
 <p>Des langages, tels que le C, cachent délibérément au développeur
-  l'utilisation d'une pile de contexte pour sauvegarder des
-  informations. Par exemple, lorsque une fonction appelle une autre
-  fonction, le compilateur va empiler:</p>
-LIST(les paramètres des fonctions, les variables locales de la fonction, et
-bien d'autres encore comme le code de retour)
+   l'utilisation d'une pile de contexte pour sauvegarder des
+   informations. Par exemple, lorsque une fonction appelle une autre
+   fonction, le compilateur va empiler:</p>
+
+LIST(les paramètres des fonctions[,], les variables locales de la
+fonction[,], et bien d'autres encore comme le code de retour.)
 
 <p>Ceci peut entraîner des pénalités en temps d'exécution du programme
-et des débordements de la pile. Ce qui arrive par exemple: LIST(soit en
-passant par copie des données trop grosses,soit en utilisant la
+(trop de paramètres, passage des paramètres par copie au lieu de par
+addresses), voir des crashs par débordement de la pile d'appels (stack
+overflow) qui arrive, par exemple, dans les cas suivants: LIST(soit en
+passant par copie des données trop grosses[,],soit en utilisant la
 récursivité sur des langages mal adaptés à la récursion terminale tels
-  que le C)</p>
+que le C.)</p>
 
-<p>Forth utilise deux types de piles: LISTE(une pour stocker les
-données et accéssible au développeur,une seconde utilisée en interne
-pour sauvegarder l'ordre des appels des mots. Cette pile est
+<p>Forth utilise deux types de piles: LIST(une pour stocker les
+données et accéssible au développeur[,],une seconde utilisée en
+interne pour sauvegarder l'ordre des appels des mots. Cette pile est
 partiellement accéssible au développeur mais peut présenter un risque
-de corruption si elle est mal utilisée).
+de corruption si elle est mal utilisée.)
 
 <p>STRONG(Pile de données:) En Forth, avec la notation polonaise
 inversée, les opérandes sont directement stockés dans une pile de
@@ -291,183 +310,116 @@ la pile, d'où l'apparition des mots LOCAL dans certains Forth) comme
 moyen de stockage de résultats intermédiaires et de passage aux
 paramètres pour les opérateurs.
 
-<p>Le code suivant :</p>
+<p>Supposons les piles initialement vides puis exécutons le code suivant:</p>
 CODE[]RED(2) DUP + .
 END_CODE
 
-<p>Va empiler l'opérande 2 dans la pile. Le mot DUP va le consommer
-puis le dupliquer (donc remis dans la pile de données). Le mot +
-consommera les deux valeurs de la pile, les additionnera et empilera
-le résultat (soit la valeur 4). Finalement le mot . consommera le
-  sommet de la pile affichera sa valeur à l'écran.</p>
+LIST(L'interpréteur va placer l'opérande 2 dans la pile (qui aura donc
+son premier élément).,
+
+Le mot DUP va le consommer (dépiler) puis le dupliquer (DUPlicate en
+anglais). La pile aura deux éléments.,
+
+Le mot + consommera les deux éléments de la pile (deux dépilements),
+les additionnera et empilera le résultat (soit la valeur
+4).,
+
+Finalement le mot . dépiler la valeur et affichera sa valeur à
+l'écran. La pile de données est désormais vide.)
+
+<p>Il est de la résponsabilité du développeur de vérifier qu'il y ait
+toujours le bon nombre d'éléments dans la pile. Si un mot veut
+consommer dans une pile vide. L'interpréteur va s'intérompre et le
+signaler à l'utilisateur.</p>
 
 <p>STRONG(Pile de retour:) cette pile est utilisée pour mémoriser
-l'ordre des appels des mots Forth appelant d'autres mots
-Forth. Supposons la définition suivante: ITALIC(Un repas est constitué
-d'un petit-déjeuner[,] d'un déjeuner lui même constitué d'un
-  poulet-frites et d'un dessert.</p>
+l'ordre des appels des mots Forth appelant d'autres mots Forth. Pour
+bien comprendre la raison de l'existance de cette pile, rappellons
+nous comment parcourir un algorithme de parcours d'arbre.  Sur la
+figure suivante, nous voulons parcourir les éléments (noeuds) de
+l'arbre avec un parcours préfixe main gauche
+EXTLINK(https://fr.wikipedia.org/wiki/Parcours_d%27arbre,main-gauche).</p>
 
-A FINIR
+CAPTION_PICTURE(tuto/forth/poulet-frite-arbre.png,Votre repas pour ce midi.)
 
-Il existe des mots permettant de déplacer temporairement des nombres
-sur la pile de retour >R R>. Faire attention à laisser la définition
-propre sous peine de faire crasher l'interpréteur. Pour cette raison,
-cerains Forth interdit ces mots, mets privée l'accés à la pile de
-retour, et propose à l'utilisateur d'utiliser une pile intermédiaire
-de stockage. Nottons que les Forth initiaux ne manipulent pas de
-nombres floattants, certains Forth ont une pile qui leur est dédiée.
+<p>Le résultat attendu d'un parcours préfixe est: repas,
+petit-déjeuner, déjeuner, poulet, frites, désert. Pour obtenir se
+résultat on peut penser à deux algorithmes: -- un récursif, -- l'autre
+itératif.</p>
 
-
-subsection(ICON_GEAR,Différentes classes de mots,class)
-
-
-  Néanmoins Forth offre la possibilité d'utiliser des
-constantes et des variables mais qui doivent être vues comme des noms
-sur des emplacements mémoire de longue durée (équivalent aux globales
-du C) à savoir que leur durée de vie est lié à celle du programme.</p>
-
-
-
-<p>Je décris rapidement les différents catégories de mot sachant que
-le lien EXTLINK(https://www.forth.com/starting-forth/,Starting Forth)
-les expliquera mieux :</p>
-
-LIST(Gestion des piles, gestion
-numérique,arithmétique,structure de contrôle,action sur la
-mémoire,gestion des entrées-sorties,conversion,mots de haut niveau)
-
-<p>STRONG(Commentaires :) il existe deux types de commentaires en
-Forth. Le premier type est le mot Forth immédiat ORANGE(&#40;) qui
-ignore tout caractère jusqu'au premier caractère &#41;
-rencontré. Par conséquent il est donc impossible d'imbriquer des
-commentaires entre-eux. Et il ne faut pas oublier les espaces car
-&#40; est un mot Forth comme un autre. Ce type de commentaire est
-préféré pour indiquer les paramètres d'un mot Forth. Pour plus de
-renseignements sur la norme de la notation des paramètres
-EXTLINK(http://www.forth.org/forth_style.html,voir ce site).</p>
-CODE[]: DIVISION ( n1 n2 -- n1/n2 ) / ;
+Voyons d'abord la version récursive de l'algorithme:
+CODE[]explorer(arbre A):
+   afficher le noeud de A
+   si A a un fils gauche alors explorer(fils gauche de A) fin si
+   si A a un fils droit alors explorer(fils droit de A) fin si
 END_CODE
 
-<p>Indique que DIVISION va consommer deux nombres signés où n1 est
-déposé dans la pile avant n2 (dans l'ordre de gauche à droite) et
-retourner le résultat dans la pile. Pour preuve RED(1 0) DIVISION doit
-retourner une exception tentative de division par zéro.</p>
+Cet algorithme utilise implicitement une pile pour stocker les noeuds à parcourir.
+Le compilateur va gérer la pile d'appel pour nous. Rappellez vous quand je disais
+que le langage C cachait au développeur l'utilisation de cette pile.
 
-<p>Le deuxième type de commentaire (ajouté tardivement) est le mot
-ORANGE(&#92;) qui ignore la ligne entière. Il est utilisé pour de
-vrais commentaires autre que le renseignements de paramétres.</p>
-
-<p>STRONG(Gestion de la pile :) permet de commuter l'ordre des données
-dans la pile. Par exemple DUP duplique le sommet, DROP le supprime,
-SWAP permute le sommet de la pile avec l'avant dernier, le mot
-. consomme et affiche le sommet de la pile, etc.</p>
-
-<p>STRONG(Mémoire :) Le mot @ permet d'accéder au contenu d'une
-adresse. Le mot ! permet de stocker une valeur dans une adresse. Une
-  variable en Forth est une mémoire nommée. Exemple :</p>
-CODE[]15 VARIABLE TOTO
-TOTO @ .
-14 TOTO !
-: ? @ . ;
-TOTO ?
-END_CODE
-<p>La première ligne créé une variable nommée TOTO avec la valeur
-15. La deuxième ligne permet d'accéder au contenu de la variable puis
-l'affiche. La troisième ligne change la valeur de TOTO avec la valeur
-14. La quatrième ligne crée un mot couramment utilisé. La dernière
-affichera la valeur 14.</p>
-
-<p>STRONG(Base :) Forth permet d'afficher les nombres dans la base
-désirée. Exemple amusant :</p>
-CODE[]: HEX 16 BASE ! ;
-a .
-HEX
-BASE ?
-a .
-10 BASE !
-BASE
-a .
+Voyons comment est gérée cette pile, en utilisant un algorithme itératif:
+CODE[]explorer(arbre A):
+   creer pile vide
+   empiler(A)
+   tant que (Pile n'est pas vide)
+   faire
+       noeud = depiler
+       afficher le noeud
+       si noeud a un fils gauche alors empiler(le fils gauche de noeud) fin si
+       si noeud a un fils droit alors empiler(le fils droit de noeud) fin si
+   fin tant que
 END_CODE
 
-<p>La première ligne redéfinit un mot courant du Forth permettant de
-passer en base 16 (hexadécimal). Par défaut Forth est en base 10
-(décimale) donc la deuxième ligne doit générée une erreur
-(l'utilisateur voulait empiler le nombre a en base 16 (valant 10 en
-base 10) mais comme nous sommes en base 10 Forth détecte que ce mot
-lui est inconnu. Les lignes 3 à 5 permet de vérifier que nous sommes
-en base 16, la ligne 5 ne doit plus générer d'erreur. Ligne 7 à 9,
-l'utilisateur tente naïvement de repasser en base décimale mais cela
-échoue car le nombre 10 est interprète en base hexadécimale valant 16
-en base décimale. Donc il n'y a pas eu de changement de base</p>
+<p>Quelle est le lien avec Forth ? L'interpréteur Forth dés qu'il lit
+un nouveau token va l'interprété de façon similaire à notre algorithme
+d'exploration d'arbre, la pile qu'il utilise est la pile nommée return
+stack. Quelle est le lien entre un mot Forth est un arbre ? Un mot
+Forth connu de l'interpréteur à inplicitement une structure d'arbre,
+cela sera plus clair lorsque nous arborderons le chapitre sur le
+dictionnaire de l'interpréteur. Pour le moment, le lecteur doit juste
+l'accepter les explications suivantes. Supposons que notre Forth
+connaisse les mots PETIT-DEJEUNER, POULET, FRITES, DESERT. Nous
+pouvons crééer les mots suivants:</p>
 
-<p>STRONG(Mots de structure :) les classiques structures de contrôle
-connues des autres langages (comme le C) sont : le test conditionnel
-if-then-else, la boucle do-loop, la boiucle for, etc. Comme Forth
-utilise le système polonais inversé même le if-then-else du C devient
-IF ELSE THEN. Cela peut perturber le débutant mais on peut renommer
-THEN par FI ou ENDIF ce qui aidera les débutants.</p>
-CODE[]GREEN(: ENDIF) ORANGE(&#91;COMPILE&#93; THEN ; IMMEDIATE)
+CODE[]: GREEN(DEJEUNER) POULET FRITES ORANGE(;)
+: GREEN(REPAS) PETIT-DEJEUNER DEJEUNER DESERT ORANGE(;)
 END_CODE
 
-<p>De plus IF ELSE THEN doivent obligatoirement être utilisés dans une
-définition sinon le compilateur échouera. En mode interprétation if
-faudra utiliser les mots [IF] [ELSE] [THEN] qui équivaut au #if #else
-#endif du langage C. Le lien
-EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,suivant)
-explique en quoi Moore a encore réduit le nombre de mots de
-structure. Par exemple le ELSE n'existe plus. Avant :</p>
-CODE[]GREEN(: MOT) TEST BLUE(IF) ACTION1 BLUE(ELSE) ACTION2 BLUE(THEN) ACTION3 ;
-END_CODE
+<p>Le mot Forth REPAS aura la forme d'arbre suivante:</p>
 
-<p>Devient :</p>
-CODE[]GREEN(: SOUS-MOT) TEST BLUE(IF) ACTION1 EXIT BLUE(THEN) ACTION2 ;
-GREEN(: MOT) SOUS-MOT ACTION3 ;
-END_CODE
+CAPTION_PICTURE(tuto/forth/poulet-frite-forth.png,Votre repas en Forth.)
 
-<p>STRONG(Arithmétique :) addition, conversion entier signé et non
-signé, opération booléenne. Point important : contrairement à des
-langage tel que C où le faux vaut 0 et le vrai vaut toutes valeurs
-différentes de 0 (mais où 1 est en général retourné), en forth le faux
-vaut -1. Le EXTLINK(http://wiki.c2.com/?BooleanRepresentation,lien) en
-parle plus longuement. Sinon, voici un exemple :</p> CODE[]RED(1 0) &#60;&#62; . END_CODE
+<p>Comment est implémenté les piles et le parcours d'arbres des mots
+en Forth ? Deux réponses:</p>
 
-<p>La pile de données des Forth permet uniquement de manipuler des
-entiers (signés et non signés) ou des adresses de la machine virtuelle
-(qui sont finalement vues comme un entier), les valeurs en floatants
-(float et double du langage C) ne sont pas gérées nativement, une
-bibliothèque devant alors être chargée pour les gérer.</p>
+dnl expliquer les mots primitifs
 
-<p>En fait, par défaut, Forth n'utilise pas une seule pile mais deux
-piles. La deuxième, appelée pile de retour, sert à l'interpréteur
-Forth pour mémoriser l'ordre d'exécution des mots appelant d'autres
-mots. Cette pile est automatiquement manipulée par lui mais laisse,
-quand même, à l'utilisateur la possibilité de déplacer et stocker
-temporairement des éléments de la pile de données (ce qui n'est pas
-toujours sans risque). Nous y reviendrons plus tard.</p>
+LIST([Assembleur: Forth étant un langage pour les micro-controleurs,
+les mots primitifs du langage (à savoir le coeur du système)
+ITALIC(pointent) sur du code assembleur, une des piles utilise le
+registre de la pile interne aux micro-controleur, l'autre pile doit
+être gérée explicitement. noeud est le registre PC et il faut un
+registre d'interprétation IP qui se déplace automatiquement et exécute
+les instructions assembleurs des mots. L'existence des fils est géré
+par le mot Forth spécial RETURN qui doit être ITALIC(collé) aux mots
+primitifs. Je conseille le tutoriel de
+EXTLINK(http://git.annexia.org/?p=jonesforth.git;a=blob;f=jonesforth.S;h=45e6e854a5d2a4c3f26af264dfce56379d401425;hb=HEAD,JonesForth)
+pour plus de renseignements.], [Dans un langage de haut niveau tel que
+le C: pour un soucis de portabilité les piles seront émulées par un
+tableau et les registres IP et PC seront émulés par un switch case.])
 
-<p>Des Forth modernes peuvent ajouter nativement des piles de données
-supplémentaires comme une pile d'entiers (appelés pile alternative)
-et/ou une pile des floatants. En général, la pile de donnée
-supplémentaire permet d'éviter l'utilisation de la pile de retour
-comme stockage temporaire et rendant l'interpréteur Forth plus fiable
-aux erreurs de programmation.</p>
-
-<p>Un système de sécurité permet de vérifier que les piles ne
-débordent pas (par le haut ou par le bas) et prévient l'utilisateur en
-arrêtant l'exécution du mot en cours. Charles H. Moore quand à lui
-préfère utiliser un tampon circulaire par rapport à une pile. Il n'y a
-plus de risque possible de débordement de mémoire mais il n'a pas
-ajouté de système pour prévenir l'utilisateur car selon lui le
-développeur doit maîtriser le nombre d'opérandes qu'il manipule. De
-plus, ce système permet de décider à tout instant la pile comme étant
-vide.</p>
-
-<p>On constatera après l'exécution du dernier exemple, que la
-profondeur de pile des donnée n'a pas été changée. Ceci n'est pas une
-contrainte mais le standard Forth impose de laisser intact la
-profondeur des piles pour au moins deux cas :</p> LIST(lors des
-définitions d'un nouveau mot Forth, et la fin d'un fichier quand il
-est inclus par un autre fichier.)
+<p>STRONG(Piles auxiliaires:) Pour information, il existe des mots
+permettant de déplacer temporairement des nombres sur la pile de
+retour [>R] et [R>]. Il faudra faire attention à laisser la définition
+propre sous peine de faire crasher l'interpréteur (interpétation, lors
+du parcours d'arbre, du nombre transféré de la pile de données à la
+pile de retour). Pour cette raison, cerains Forth interdit ces mots,
+mets privée l'accés à la pile de retour, et propose à l'utilisateur
+d'utiliser une pile intermédiaire de stockage. Nottons que les Forth
+initiaux ne manipulent pas de nombres floattants, certains Forth ont
+une pile qui leur est spécialement dédiée. Par conséquent un Forth
+non-standard peut avoir jusqu'à quatre piles.</p>
 
 SUBSECTION(ICON_GEAR,Dictionnaire Forth: une machine virtuelle,dico)
 
@@ -480,7 +432,9 @@ END_CODE
 
 <p>Permet de définir un nouveau mot Forth FOO via les mots : et ; qui
 jouent le rôle de début et de fin de définition. Une fois le mot FOO
-défini, quand il sera exécuté, affichera la valeur 4.</p>
+défini, quand il sera exécuté, affichera la valeur 4. Nous avons vu,
+dans la section précédente que l'exécution de mots Forth se rapproche
+d'un parcours d'arbre. Cette section explique enfin ce lien.</p>
 
 <p>Les mots Forth et leur définition sont stockés dans une structure
 de donnée appelée par convention le dictionnaire. La norme Forth
@@ -497,7 +451,7 @@ convention on nomme cellule une case mémoire dont le nombre d'octet
 dépend de l'architecture de la cible: 8, 16 ou 32 bits (pour rappel
 Forth étant né dans les années 70):</p>
 
-CODE[]&lt;--- DICTIONARY ENTRY (HEADER) -------->
+CODE[] &lt;--- DICTIONARY ENTRY (HEADER) -------->
  +--------------+--------+--------------+--------------- - - - -
  | LENGTH/FLAGS | NAME   | [LINK] POINTER | DEFINITION
  +--------------+--------+--------------+--------------- - - - -
@@ -669,6 +623,164 @@ CODE[]GREEN(: FACTORIELLE)
    DUP RED(1) - FACTORIELLE *
  BLUE(THEN) ORANGE(;)
 END_CODE
+
+
+
+
+
+
+SUBSECTION(ICON_GEAR,Différentes classes de mots,class)
+
+
+  Néanmoins Forth offre la possibilité d'utiliser des
+constantes et des variables mais qui doivent être vues comme des noms
+sur des emplacements mémoire de longue durée (équivalent aux globales
+du C) à savoir que leur durée de vie est lié à celle du programme.</p>
+
+
+
+<p>Je décris rapidement les différents catégories de mot sachant que
+le lien EXTLINK(https://www.forth.com/starting-forth/,Starting Forth)
+les expliquera mieux :</p>
+
+LIST(Gestion des piles, gestion
+numérique,arithmétique,structure de contrôle,action sur la
+mémoire,gestion des entrées-sorties,conversion,mots de haut niveau)
+
+<p>STRONG(Commentaires :) il existe deux types de commentaires en
+Forth. Le premier type est le mot Forth immédiat ORANGE(&#40;) qui
+ignore tout caractère jusqu'au premier caractère &#41;
+rencontré. Par conséquent il est donc impossible d'imbriquer des
+commentaires entre-eux. Et il ne faut pas oublier les espaces car
+&#40; est un mot Forth comme un autre. Ce type de commentaire est
+préféré pour indiquer les paramètres d'un mot Forth. Pour plus de
+renseignements sur la norme de la notation des paramètres
+EXTLINK(http://www.forth.org/forth_style.html,voir ce site).</p>
+CODE[]: DIVISION ( n1 n2 -- n1/n2 ) / ;
+END_CODE
+
+<p>Indique que DIVISION va consommer deux nombres signés où n1 est
+déposé dans la pile avant n2 (dans l'ordre de gauche à droite) et
+retourner le résultat dans la pile. Pour preuve RED(1 0) DIVISION doit
+retourner une exception tentative de division par zéro.</p>
+
+<p>Le deuxième type de commentaire (ajouté tardivement) est le mot
+ORANGE(&#92;) qui ignore la ligne entière. Il est utilisé pour de
+vrais commentaires autre que le renseignements de paramétres.</p>
+
+<p>STRONG(Gestion de la pile :) permet de commuter l'ordre des données
+dans la pile. Par exemple DUP duplique le sommet, DROP le supprime,
+SWAP permute le sommet de la pile avec l'avant dernier, le mot
+. consomme et affiche le sommet de la pile, etc.</p>
+
+<p>STRONG(Mémoire :) Le mot @ permet d'accéder au contenu d'une
+adresse. Le mot ! permet de stocker une valeur dans une adresse. Une
+  variable en Forth est une mémoire nommée. Exemple :</p>
+CODE[]15 VARIABLE TOTO
+TOTO @ .
+14 TOTO !
+: ? @ . ;
+TOTO ?
+END_CODE
+<p>La première ligne créé une variable nommée TOTO avec la valeur
+15. La deuxième ligne permet d'accéder au contenu de la variable puis
+l'affiche. La troisième ligne change la valeur de TOTO avec la valeur
+14. La quatrième ligne crée un mot couramment utilisé. La dernière
+affichera la valeur 14.</p>
+
+<p>STRONG(Base :) Forth permet d'afficher les nombres dans la base
+désirée. Exemple amusant :</p>
+CODE[]: HEX 16 BASE ! ;
+a .
+HEX
+BASE ?
+a .
+10 BASE !
+BASE
+a .
+END_CODE
+
+<p>La première ligne redéfinit un mot courant du Forth permettant de
+passer en base 16 (hexadécimal). Par défaut Forth est en base 10
+(décimale) donc la deuxième ligne doit générée une erreur
+(l'utilisateur voulait empiler le nombre a en base 16 (valant 10 en
+base 10) mais comme nous sommes en base 10 Forth détecte que ce mot
+lui est inconnu. Les lignes 3 à 5 permet de vérifier que nous sommes
+en base 16, la ligne 5 ne doit plus générer d'erreur. Ligne 7 à 9,
+l'utilisateur tente naïvement de repasser en base décimale mais cela
+échoue car le nombre 10 est interprète en base hexadécimale valant 16
+en base décimale. Donc il n'y a pas eu de changement de base</p>
+
+<p>STRONG(Mots de structure :) les classiques structures de contrôle
+connues des autres langages (comme le C) sont : le test conditionnel
+if-then-else, la boucle do-loop, la boiucle for, etc. Comme Forth
+utilise le système polonais inversé même le if-then-else du C devient
+IF ELSE THEN. Cela peut perturber le débutant mais on peut renommer
+THEN par FI ou ENDIF ce qui aidera les débutants.</p>
+CODE[]GREEN(: ENDIF) ORANGE(&#91;COMPILE&#93; THEN ; IMMEDIATE)
+END_CODE
+
+<p>De plus IF ELSE THEN doivent obligatoirement être utilisés dans une
+définition sinon le compilateur échouera. En mode interprétation if
+faudra utiliser les mots [IF] [ELSE] [THEN] qui équivaut au #if #else
+#endif du langage C. Le lien
+EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,suivant)
+explique en quoi Moore a encore réduit le nombre de mots de
+structure. Par exemple le ELSE n'existe plus. Avant :</p>
+CODE[]GREEN(: MOT) TEST BLUE(IF) ACTION1 BLUE(ELSE) ACTION2 BLUE(THEN) ACTION3 ;
+END_CODE
+
+<p>Devient :</p>
+CODE[]GREEN(: SOUS-MOT) TEST BLUE(IF) ACTION1 EXIT BLUE(THEN) ACTION2 ;
+GREEN(: MOT) SOUS-MOT ACTION3 ;
+END_CODE
+
+<p>STRONG(Arithmétique :) addition, conversion entier signé et non
+signé, opération booléenne. Point important : contrairement à des
+langage tel que C où le faux vaut 0 et le vrai vaut toutes valeurs
+différentes de 0 (mais où 1 est en général retourné), en forth le faux
+vaut -1. Le EXTLINK(http://wiki.c2.com/?BooleanRepresentation,lien) en
+parle plus longuement. Sinon, voici un exemple :</p> CODE[]RED(1 0) &#60;&#62; . END_CODE
+
+<p>La pile de données des Forth permet uniquement de manipuler des
+entiers (signés et non signés) ou des adresses de la machine virtuelle
+(qui sont finalement vues comme un entier), les valeurs en floatants
+(float et double du langage C) ne sont pas gérées nativement, une
+bibliothèque devant alors être chargée pour les gérer.</p>
+
+<p>En fait, par défaut, Forth n'utilise pas une seule pile mais deux
+piles. La deuxième, appelée pile de retour, sert à l'interpréteur
+Forth pour mémoriser l'ordre d'exécution des mots appelant d'autres
+mots. Cette pile est automatiquement manipulée par lui mais laisse,
+quand même, à l'utilisateur la possibilité de déplacer et stocker
+temporairement des éléments de la pile de données (ce qui n'est pas
+toujours sans risque). Nous y reviendrons plus tard.</p>
+
+<p>Des Forth modernes peuvent ajouter nativement des piles de données
+supplémentaires comme une pile d'entiers (appelés pile alternative)
+et/ou une pile des floatants. En général, la pile de donnée
+supplémentaire permet d'éviter l'utilisation de la pile de retour
+comme stockage temporaire et rendant l'interpréteur Forth plus fiable
+aux erreurs de programmation.</p>
+
+<p>Un système de sécurité permet de vérifier que les piles ne
+débordent pas (par le haut ou par le bas) et prévient l'utilisateur en
+arrêtant l'exécution du mot en cours. Charles H. Moore quand à lui
+préfère utiliser un tampon circulaire par rapport à une pile. Il n'y a
+plus de risque possible de débordement de mémoire mais il n'a pas
+ajouté de système pour prévenir l'utilisateur car selon lui le
+développeur doit maîtriser le nombre d'opérandes qu'il manipule. De
+plus, ce système permet de décider à tout instant la pile comme étant
+vide.</p>
+
+<p>On constatera après l'exécution du dernier exemple, que la
+profondeur de pile des donnée n'a pas été changée. Ceci n'est pas une
+contrainte mais le standard Forth impose de laisser intact la
+profondeur des piles pour au moins deux cas :</p> LIST(lors des
+définitions d'un nouveau mot Forth, et la fin d'un fichier quand il
+est inclus par un autre fichier.)
+
+
 
 
 SUBSECTION(ICON_GEAR,Fonctionnement de interpréteur externe,interpret)

@@ -1,0 +1,6 @@
+graph mon_graphe {
+  repas -- petitdejeuner;
+  repas -- dejeuner -- poulet;
+  dejeuner -- frites;
+  repas -- dessert;
+}

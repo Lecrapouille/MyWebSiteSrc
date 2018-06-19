@@ -1,0 +1,5 @@
+graph mon_graphe {
+  rankdir="LR";
+  repas -- petitdejeuner -- dejeuner -- dessert;
+  dejeuner -- poulet -- frites;
+}
