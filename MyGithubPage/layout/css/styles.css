@@ -351,9 +351,10 @@ td {
 }
 
 .code {
-     background-color:  #fff;
+     font:       11px/11px "Times New Roman", Times, sans-serif;
+     background-color:  #9ba8dd; /*#ddd;*/
      width:             93%;
-     border:            1px dotted #69c;
+     border:            1px dotted #2165ae;/*#69c;*/
      margin:            10px 0 0 20px;
      padding:           0 1em;
      display:           block;
