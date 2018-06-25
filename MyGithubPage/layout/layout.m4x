@@ -6,7 +6,8 @@ dnl the secondary. The primary showdisplays the website categories while
 dnl the secondary displays differents articles.
 dnl #####################################################################
 dnl Helper macros for building head menu (primary and secondary)
-define([display_all_menu_elements_],[ifelse($2,,,$2,THISFILE,[<li id="_which_menu_item_active_">$1</li> display_all_menu_elements_(shift(shift($@)))],
+define([display_all_menu_elements_],[ifelse($2,,,$2,THISFILE,[<li id="_which_menu_item_active_">$1</li>
+display_all_menu_elements_(shift(shift($@)))],
 [<li><a href="$2-]LANG[.html">$1</a></li>
 display_all_menu_elements_(shift(shift($@)))])])dnl
 define([HEAD_MENU],[<div id="$1">
@@ -52,7 +53,7 @@ dnl #####################################################################
 dnl ---------------------------------------------------------------------
 define([ITEM_BULLET],[ifelse($1,,[],[<li><a href="$2"><img class="icone7" src="img/bullet.gif" alt=""/>$1.</a></li>])])
 define([display_all_items_],[ifelse($2,,,[dnl Do not include item self referencing itself
-ifelse($2,BASENAME,[<!--],[]) ITEM_BULLET($1,$2) ifelse($2,BASENAME,[-->],[])
+ifelse($2,THISFILE-LANG.html,[<!--],[]) ITEM_BULLET($1,$2) ifelse($2,THISFILE-LANG.html,[-->],[])
 display_all_items_(shift(shift($@)))])])dnl
 dnl ---------------------------------------------------------------------
 define([HEADING],[<!-- Left Heading -->
@@ -69,7 +70,7 @@ $@])
 dnl #####################################################################
 dnl Left heading specific for the page
 dnl #####################################################################
-define([HEADING_3D_GAME],[HEADING(TRANS_SAME_PROJ,Speedway,speedway,Ecstasy,ecstasy)])
+define([HEADING_3D_GAME],[HEADING(TRANS_SAME_PROJ,Speedway,speedway-LANG.html,Ecstasy,ecstasy-LANG.html)])
 define([HEADING_SIMATDYN_LIKE],[HEADING(TRANS_SAME_PROJ,Spreadsheet-based GIS Models,dnl
 [https://scholarworks.umb.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1004&context=management_wp],dnl
 Rocs,https://github.com/KDE/rocs)])dnl
