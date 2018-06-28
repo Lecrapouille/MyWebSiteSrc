@@ -8,64 +8,79 @@ BEGIN_BODY
 SECTION(Le langage Forth)
 SUBSECTION(ICON_READ,Références à Forth,ref)
 
-<p>Ce document est une tentative de faire découvrir ou redécouvrir le
+<p>Le but de ce document est de faire découvrir (ou redécouvrir) le
 langage Forth, d'expliquer son fonctionnement interne et de mieux
 faire comprendre certains mots dits STRONG(de hauts niveaux). Ce
-document montre aussi qu'il existe, non pas un unique Forth
-(normalisé) mais des Forth (personnalisé et adapté à chaque projet).
-Avant de commencer ce tutoriel, voici une sélection d'ouvrages et de
-liens que je recommande concernant ce langage.  Avant de poursuivre la
-lecture de cet article, je suggère aux lecteurs qui n'ont jamais connu
-ce langage de s'initier avec les deux premiers liens puis, si possible
-le livre de W.P. Salman, O. Tisserand, B. Toulout qui est ma référence
-sur le fonctionnement interne du Forth.</p>
+document montre aussi qu'il existe, non pas un unique langage Forth
+standardisé mais des Forth personnalisés et adaptés à chaque projet.
+Avant de poursuivre la lecture de ce tutoriel, voici une sélection non
+exaustive d'ouvrages et de liens que je recommande de lire. Je suggère
+aux lecteurs qui n'ont jamais connu ce langage de s'initier avec les
+deux premiers liens puis, si possible le livre de W.P. Salman,
+O. Tisserand, B. Toulout qui est, selon moi, un livre de référence
+expliquant complétement le fonctionnement interne du Forth.</p>
 
-LIST(
-ICON_FR EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,Un cours)
-académique sur le Forth.,
+LIST( ICON_FR
+EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,Un
+cours) académique sur le Forth. Ce document est intéressant car il
+parle de la dernière variante de Forth inventé par Moore: colorForth.,
 
 ICON_EN EXTLINK(https://www.forth.com/starting-forth/,Starting Forth)
-est le cours d'introduction pédagogique recommandé pour le débutant.,
+est le cours d'introduction pédagogique recommandé pour s'initier à ce
+langage.,
 
-ICON_EN ICON_FR EXTLINK(https://www.amazon.com/FORTH-W-P-SALMAN/dp/0387912568/,Forth)
+ICON_EN EXTLINK(http://lars.nocrew.org/forth2012/core.html,forth2012) le
+glossaire Forth ANSI 2012.,
+
+ICON_EN ICON_FR
+EXTLINK(https://www.amazon.com/FORTH-W-P-SALMAN/dp/0387912568/,Forth)
 [W.P. Salman, O. Tisserand, B. Toulout. Edition Macmillan (english
 version) ou Edition Eyrolles (french version) 1983. (ISBN-13:
-978-0387912561, ISBN-10: 0387912568) est un excellent livre
-décrivant de façon complète le fonctionnement d'un interpréteur
+978-0387912561, ISBN-10: 0387912568) est un excellent livre décrivant
+de façon complète la théorie du fonctionnement d'un interpréteur
 Forth. Avec ce livre seul, il est possible de re-créer son propre
 Forth. A noter que la version française 1983 contient quelques erreurs
-de typographie dans du code Forth (probablement corrigés dans la
-version de 1984).],
+de typographie dans du code Forth corrigées dans la version anglaise
+(et probablement la version française de 1984).],
 
-ICON_EN EXTLINK(http://git.annexia.org/?p=jonesforth.git;a=blob;f=jonesforth.S;h=45e6e854a5d2a4c3f26af264dfce56379d401425;hb=HEAD,JonesForth)
+ICON_EN
+EXTLINK(http://git.annexia.org/?p=jonesforth.git;a=blob;f=jonesforth.S;h=45e6e854a5d2a4c3f26af264dfce56379d401425;hb=HEAD,JonesForth)
 [Un excellent tutoriel sur l'implémentation d'un interpréteur Forth
 écrit en assembleur i386. Cet document complète le livre de
-W.P. Salman pour la clarté de ses explications et de son code
-assembleur (il existe des versions de ce code pour d'autre assembleur
-et dont un fonctionnant pour Arduino Due, voir lien suivant). Tous les
-mots n'y sont pas décrits mais certaines explications y sont plus
-claires.],
+W.P. Salman pour la clarté de ses explications et de son
+implémentation très claire en code assembleur (il existe des versions
+de ce code pour d'autre assembleur et dont un fonctionnant pour
+Arduino Due, voir lien suivant). L'interpréteur n'est pas complet mais
+les explications y sont plus claires.)],
 
 ICON_EN EXTLINK(https://github.com/ekoeppen/CoreForth, CoreForth) un
   Forth pour Cortex M0 et M3. Fonctionne chez moi avec une carte
   EXTLINK(https://www.arduino.cc/en/Main/arduinoBoardDue,Arduino Due).,
 
-ICON_FR EXTLINK(https://www.amazon.fr/Concept-Forth-Langage-syst%C3%A8me-dexploitation/dp/2866990110,
-Le Concept Forth) de Pascal Courtois (français[,] ISBN-10: 2866990110[,]
-ISBN-13: 978-2866990114). Explique les mots de
-base[,] comment fonctionne un interpréteur Forth mais est moins
-complet que le livre Forth de W.P. Salman. On peut trouver des
-  extraits sur Google (avec l'aimable autorisation de son auteur).,
+ICON_FR
+EXTLINK(https://www.amazon.fr/Concept-Forth-Langage-syst%C3%A8me-dexploitation/dp/2866990110,
+Le Concept Forth) [de Pascal Courtois (français, ISBN-10:
+2866990110, ISBN-13: 978-2866990114). Explique les mots de base[,]
+comment fonctionne un interpréteur Forth mais est moins complet que le
+livre Forth de W.P. Salman. On peut trouver des extraits sur Google
+(avec l'aimable autorisation de son auteur). Il donne des programmes
+assembleur sur des interpréteurs Forth mais ils sont difficilement
+compréhensibles et pour des vieux micro et il vaudra mieux se baser le
+lien précédent.],
 
-ICON_FR EXTLINK(http://jpb.forth.free.fr/,Entrer dans le monde du Forth) Très
-belle réalisation de cartes électroniques pour systèmes Forth.,
+ICON_FR EXTLINK(http://jpb.forth.free.fr/,Entrer dans le monde du
+Forth) Très belle réalisation de cartes électroniques pour systèmes
+Forth. Les explications sont claires mais peu nombreuses.,
 
 ICON_EN EXTLINK(http://thinking-forth.sourceforge.net/,Thinking Forth)
 Livre pour les développeurs modérés en Forth donnant des conseils sur
-comment bien penser son projet en Forth.,
+comment bien penser son projet en Forth. Ce livre est destiné pour les
+enthousiastes non débutants.,
 
-ICON_EN EXTLINK(http://lars.nocrew.org/forth2012/core.html,forth2012) le
-glossaire Forth ANSI 2012.)
+ICON_EN
+EXTLINK(https://www.amazon.com/Object-Oriented-Forth-Dick-Pountain/dp/0125635702,Object
+Oriented Forth) Livre expliquant comment faire évoluer son Forth pour
+le programmer façon objet.)
 
 <p>Voici une liste non exhaustive de Forth non payants :</p>
 
@@ -176,13 +191,26 @@ LIST(RED(En rouge) les littéraux;,GREEN(En vert) la définition d'un
    nouveau mot;,ORANGE(les mots immédiats);,BLUE(En bleu) les mots de
    structure conditionnelle;,GREY(En gris) les commentaires.)</p>
 
-SUBSECTION(ICON_EYES,Forth un langage sans syntaxe,algebre)
+SUBSECTION(ICON_EYES,Rapide aperçu de la théorie des langages,theo)
 
-<p>Pour rappel et faire simple, en théorie des langages, un
-ITALIC(lexer) est un outil d'analyse lexicale qui convertit un texte
-(entrée) en une liste d'unité lexicale (sortie) appelée
-ITALIC(symboles) (tokens en anglais). Cette liste est ensuite
-consommée par un second outil appelé ITALIC(parser) qui retourne un
+<p>Cette section emprunte de grossiers racourcis pour résumer la
+théorie des langages. Le but document n'étant pas de l'expliquer (le
+lecteur trouvera par lui même des documents complets) mais de faire
+sentir au lecteur la difficulté du sujet et par contraste de montrer
+la simplicité du langage Forth.</p>
+
+<p>Pour rappel et faire très simple, en théorie des langages, un
+ITALIC(compilateur) est un outil qui transforme un langage
+informatique en un autre langage. Par exemple du langage C au langage
+machine directement éxécutable. Pour cela, il utilise généralement
+deux outils:</p>
+
+LIST(Un ITALIC(lexer) est un outil d'analyse lexicale qui convertit un
+texte (entrée) en une liste d'unité lexicale (sortie) appelée
+ITALIC(symboles) (tokens en anglais).,
+
+Cette liste est ensuite consommée par un second outil appelé
+ITALIC(parser) qui retourne un
 EXTLINK(https://en.wikipedia.org/wiki/Abstract_syntax_tree,arbre de
 syntaxe) abstraite (AST en anglais) où les noeuds de cet arbre sont
 les opérateurs et les feuilles les opérandes et que l'on visite avec
@@ -190,21 +218,105 @@ un parcour
 EXTLINK(https://fr.wikipedia.org/wiki/Parcours_d%27arbre,main-gauche). Le
 terme ITALIC(abstrait) vient du fait
 EXTLINK(https://en.wikipedia.org/wiki/Parse_tree,Parse tree) qui
-represente la répresentation concrète et complète du texte.</p>
+represente la répresentation concrète et complète du texte.)
 
-<p>Forth est un langage hors-contexte (context-free langage en
-anglais), qui contrairement aux langages tels que le C ou Python, n'a
-pas de grammaire ambiguë, ne nécessite pas de rétro-action lexicale,
-etc. Un script Forth est une simple suite de ITALIC(symboles) séparés
-par des espaces. Il n'y a donc aucune syntaxe. Par conséquent un
-interpréteur Forth est un simple lexer sans son parser. Quand il va
-exécuter un script (donné sur son flux d'entrée), il n'a besoin que
-d'extraire le symbole courant (qui doit être soit un symbole qui lui
-est ITALIC("connu"), soit un nombre) et parfois le symbole suivant
-(quand celui-ci n'est pas encore connu, comme par exemple lors de la
-définition d'un nouveau symbole/définition Forth). Dans une
+<p>Une fois l'AST construit, cette structure est plus simple pour le
+compilateur de la travailler. Un compilo C aurait analyser un certain
+nombre fois une analyse de l'AST pour en créer des AST contenant des
+pseudo-instructions de plus en plus proche de l'assembleur de la
+machine cible. Il aurait également généré un graphe colorié afin de
+connaître le nombre minimal de registres nécessaires pour les
+variables locales (par exemple dans notre cas, un registre pour
+stocker le résultat 14), etc.</p>
+
+<p>Donnons un exemple de code en langage C:</p>
+
+CODE[]display(2 + 3 * 4);
+END_CODE
+
+<p>Un compilateur C, lors d'une première passe d'interprétation,
+aurait détecté la priorité de la multiplication sur l'addition via une
+grammaire non-ambigue et aurait ajouté implicitement les parenthèses
+suivantes:</p>
+
+CODE[]display(2 + (3 * 4));
+END_CODE
+
+<p>puis aurait généré un ParsTree similaire à:</p>
+
+CODE[]              expr
+               |
+       ------------------
+       |       |        |
+    display  factor    term
+               |        |
+          -----------   ;
+           |   |    |
+           (  expr  )
+               |
+        ---------------
+         |     |     |
+        term   +   factor
+         |           |
+         2      ------------
+                 |   |    |
+                 (  expr  )
+                     |
+                -------------
+                 |    |    |
+                term  *   term
+                 |         |
+                 3         4
+END_CODE
+
+<p>Puis un AST:</p>
+CODE[]     display
+       /
+      +
+     / \
+    *   2
+   / \
+  3    4
+END_CODE
+
+<p>Puis des AST avec des instructions de plus en plus proches du
+langage machine et obtenir du code similaire à ça. Ici on ne montre
+pas le graphe coloré pour allouer le moins de registres possibles:</p>
+
+CODE[]
+push %eax       ; save value of e1 on the stack
+pop %ecx        ; pop e1 from the stack into ecx
+addl %ecx, %eax ; add e1 to e2, save results in eax
+...
+END_CODE
+
+<p>En langage LISP, grâce à sa syntaxe représentant des arbres, on
+aurait implicitement l'AST car on aurait écrit quelque chose
+d'approchant à :</p>
+
+CODE[](display (+ (* 3 4) 2))
+END_CODE
+
+SUBSECTION(ICON_EYES,Forth un langage sans syntaxe,sansyn)
+
+<p>Forth est à la fois un interpréteur et un compilateur. Forth ne
+compile pas le code en langage machine (comme pour le langage C) mais
+du byte-code dans une machine virtuelle (comme pour Java).</p>
+
+<p>La grammaire de Forth, contrairement aux langages tels que le C ou
+Python, n'a pas de grammaire ambiguë, ne nécessite pas de rétro-action
+lexicale, etc. Un script Forth est une simple suite de
+ITALIC(symboles) séparés par des espaces. Il n'y a donc aucune
+syntaxe. Par conséquent un compilateur Forth est un simple lexer sans
+son parser. Quand il va lire un script, il n'a besoin que d'extraire
+et de reconnaitre le symbole courant (qui doit être soit un symbole
+qui lui est ITALIC("connu"), soit un nombre) et parfois le symbole
+suivant (quand celui-ci n'est pas encore connu, comme par exemple lors
+de la définition d'un nouveau symbole/définition Forth). Dans une
 ILINK(section,dico) de ce document, on expliquera ce que le verbe
-connaître signifie concrêtement.</p>
+connaître signifie concrêtement. Nous verrons également que ce sont
+les symboles eux mêmes qui agissent directement sur le comportement du
+compilateur.</p>
 
 <p>Dans la convention Forth, une unité lexicale est appelé ITALIC(mot)
 (word en anglais) et sa signification est proche de celle du langage
@@ -238,61 +350,32 @@ END_CODE
 CODE[]BLUE(2 3 4) GREY(* + .)
 END_CODE
 
-<p>En C on aurait écrit quelque chose d'approchant à :</p>
-CODE[]display(2 + 3 * 4);
-END_CODE
-
-<p>Un compilateur C, lors d'une première passe d'interprétation, aurait ajouté
-des parenthèses :</p> CODE[]display(2 + (3 * 4));
-END_CODE
-
-<p>puis aurait généré un AST similaire à:</p>
-CODE[]     display
-       /
-      +
-     / \
-    *   2
-   / \
-  3    4
-END_CODE
-
-<p>En langage LISP, grâce à sa syntaxe représentant des arbres, on
-  aurait implicitement l'AST car on aurait écrit quelque chose
-  d'approchant à :</p>
-CODE[](display (+ (* 3 4) 2))
-END_CODE
-
-<p>Un compilateur C aurait analyser un certain nombre fois une analyse
-de l'AST pour en créer des AST contenant des pseudo-instructions de
-plus en plus proche de l'assembleur de la machine cible. Il aurait
-également généré un graphe colorié afin de connaître le nombre minimal
-de registres nécessaires pour les variables locales (par exemple dans
-notre cas, un registre pour stocker le résultat 14), etc.</p>
-
-<p>En comparaison, le travail de l'interpréteur Forth est assez
-trivial: il se contente d'extraire les symboles à la volée (et de
-gauche à droite), il empile les nombres qu'il rencontre et exécute les
-opérandes (les mots Forth) consommant une certaine
-quantité de données dans cette pile puis, si
-résultat il y a, empilera le résultat. La section suivante expliquera mieux ce
-processus.</p>
+<p>Le travail de l'interpréteur Forth est assez trivial: il se
+contente d'extraire les symboles à la volée (simplement de gauche à
+droite), il empile les nombres qu'il rencontre et exécute les
+opérandes (les mots Forth) consommant une certaine quantité de données
+dans cette pile puis, si résultat il y a, empilera le résultat. La
+section suivante expliquera mieux ce processus.</p>
 
 <p>Si l'on désire créer un nouveau mot Forth, on utilisera le mot
 Forth RED(:) suivi du nom du nouveau mot Forth puis d'une suite de
 mots Forths connus ou de nombres et enfin du mot ORANGE(;) qui termine la
 définition. Les mots : et ; sont des mots primitifs du langage (builtin).
-Par exemple:</p>
+L'interpréteur Forth passe alors en mode compilation. Par exemple:</p>
 
 CODE[]RED(: MON-CALCUL) BLUE(2 3 4) GREY(* +) ORANGE(;) END_CODE
 
 <p>Il est clair que MON-CALCUL est un mot Forth inconnu et que si
-l'interpréteur tente de l'exécuter il échouera. C'est l'exécution
-du mot STRONG(:) qui va lui indiquer que le mot suivant (à savoir
+l'interpréteur tente de l'exécuter il échouera. C'est l'exécution du
+mot STRONG(:) qui va lui indiquer que le mot suivant (à savoir
 MON-CALCUL) ne doit pas être interprété mais doit être utilisé. Nous
 reviendrons plus tard sur le fonctionnement exact avec les mots Forth
-de hauts niveaux.</p>
+de hauts niveaux. Le mot MON-CALCUL a été compilé en byte-code et
+désormais il est maintenant un mot connu. Nous y reviendrons dans une
+section future.</p>
 
 SUBSECTION(ICON_GEAR,Forth un langage à piles,pile)
+
 <p>Le lecteur notera, dans le titre, l'utilisation du pluriel pour le
    mot pile. En informatique une
    EXTLINK(https://fr.wikipedia.org/wiki/Pile_(informatique),pile)
@@ -503,7 +586,7 @@ notre cas, quand SQUARE sera exécuté, il calculera la puissance deux
 du nombre stocké dans la pile. Par exemple, le code suivant, consommera le nombre
 5 posé de la pile et affichera le nombre 25.</p>
 
-CODE[]5 SQUARE .
+CODE[]BLUE(5) GREEN(SQUARE) GREY(.)
 END_CODE
 
 <p>Nous avons également vu que l'exécution de mots
@@ -531,7 +614,7 @@ alignements des adresses mémoires et du padding implicite.</p>
 <p>Voici la structure mémoire d'un mot Forth:</p>
 CODE[]                  &lt;----------            Entête        ---------->
  - - - -----------+---------------+------+------------------------+----------- - - - + - - - - - - -
-Fin mot précédent | Taille, flags | Nom  | Pointeur mot précédent | Définition       | Début mot suivant
+Fin mot précédent | BLUE([[Taille, flags]]) | RED(Nom)  | Pointeur mot précédent | GREEN(Déf)GREY(inition)       | Début mot suivant
  - - - -----------+---------------+------+------------------------+----------- - - - + - - - - - - -
 
                   ^                      ^                        ^     ^
@@ -615,32 +698,33 @@ RED(: LFA) GREEN(2) GREY(-) ORANGE(;) GREY(( CFA -- LFA))
 RED(: NFA) GREY(( CFA -- LFA))
 FIXMEEEEEEEEEEEEE
 GREEN(2) GREY(-) ORANGE(;)
+END_CODE
 
 <p>Il faut distinguer deux types de mots Forth:
 LIST(Les mots primitifs qui sont présents dans le coeur du langage et qui appellent le code
 exécutable soit assembleur soit en C. Par exempl le mot DUP appelera l'assembleur i386
 CODE[]
-mov (%esp),%eax  // duplicate top of stack
+mov (%esp)[,]%eax  // duplicate top of stack
 push %eax
 END_CODE,
 Les mots non primitifs définis par les mots Forth :)</p>
 
 <p>Le script suivant :</p>
-CODE[]GREEN(: FOO) * * ORANGE(;)
-GREEN(: BAR) FOO . ORANGE(;)
+CODE[]RED(:  SQR) GREY(DUP *) ORANGE(;)
+RED(: .SQR) GREEN(SQR) GREY(.) ORANGE(;)
 END_CODE
 
 <p>va créer deux nouvelles entrées dans le dictionnaire comme indiqué
 dans la figure ci-dessous :</p>
 CODE[]                   +--------------------+
-                   |              +---- | ----------------------------------------+------------+
-                   v              v     |                                         |            |
----------------- - - - ---------------- | --------------------------------------- | -----------|-------------
-| 0x81 | * |            | 0x83 | FOO |     | DOCOL | * | * | EXIT | 0x83 | BAR |    | DOCOL | FOO | . | EXIT
----------------- - - - ------------------------|-----|---|----|--------------------------|-------------------
-         ^                                     |     |   |    |                          |
-         |                     &lt;-- - - - ------+     |   |    v          &lt;-- - - - ------+
-         +-------------------------------------------+---+
+                   |              +---- | ------------------------------------------+-------------+
+                   v              v     |                                           |             |
+---------------- - - - ---------------- | ----------------------------------------- | ------------|------------
+| BLUE(0x81) | GREY(DUP) |          | BLUE(0x83) | RED(SQR) |     | RED(DOCOL) | GREY(DUP) | GREY(*) | ORANGE(EXIT) | BLUE(0x84) | RED(.SQR) |    | RED(DOCOL) | GREEN(SQR) | GREEN(.) | ORANGE(EXIT)
+---------------- - - - ------------------------|------|----|----|--------------------------|-------------------
+         ^                                     |      |    |    |                          |
+         |                     &lt;-- - - - ------+      |    |    v                          v
+         +--------------------------------------------+----+
 END_CODE
 
 <p>Regardons comment l'interpréteur exécute le script:</p>
@@ -1080,5 +1164,9 @@ ALLOC pour 1 cellule est le mot ,)</p>
 dnl https://fr.wikiversity.org/wiki/Forth/Conserver_des_donn%C3%A9es
 
 dnl assembleur
+
+SUBSECTION(ICON_GEAR,Un langage evolutif,evol)
+
+BUILD DOES, OO
 
 END_BODY(simtadyn,Le projet SimTaDyn,,)
