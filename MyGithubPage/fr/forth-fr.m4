@@ -193,17 +193,16 @@ LIST(RED(En rouge) les littéraux;,GREEN(En vert) la définition d'un
 
 SUBSECTION(ICON_EYES,Rapide aperçu de la théorie des langages,theo)
 
-<p>Cette section emprunte de grossiers racourcis pour résumer la
-théorie des langages. Le but document n'étant pas de l'expliquer (le
-lecteur trouvera par lui même des documents complets) mais de faire
-sentir au lecteur la difficulté du sujet et par contraste de montrer
-la simplicité du langage Forth.</p>
+<p>Le but de cette section n'est pas d'expliquer la théorie des
+langages mais plutôt de faire resentir au lecteur la difficulté de ce
+sujet et par contraste de montrer la simplicité du langage Forth. Par
+conséquent, cette section empruntera de grossiers racourcis.</p>
 
 <p>Pour rappel et faire très simple, en théorie des langages, un
 ITALIC(compilateur) est un outil qui transforme un langage
 informatique en un autre langage. Par exemple du langage C au langage
-machine directement éxécutable. Pour cela, il utilise généralement
-deux outils:</p>
+machine directement éxécutable. Pour cela un compilateur utilise
+généralement deux outils:</p>
 
 LIST(Un ITALIC(lexer) est un outil d'analyse lexicale qui convertit un
 texte (entrée) en une liste d'unité lexicale (sortie) appelée
@@ -216,9 +215,10 @@ syntaxe) abstraite (AST en anglais) où les noeuds de cet arbre sont
 les opérateurs et les feuilles les opérandes et que l'on visite avec
 un parcour
 EXTLINK(https://fr.wikipedia.org/wiki/Parcours_d%27arbre,main-gauche). Le
-terme ITALIC(abstrait) vient du fait
-EXTLINK(https://en.wikipedia.org/wiki/Parse_tree,Parse tree) qui
-represente la répresentation concrète et complète du texte.)
+terme ITALIC(abstrait) vient du fait qu'un
+EXTLINK(https://en.wikipedia.org/wiki/Parse_tree,Parse tree) est une
+répresentation concrète et complète du texte alors que l'AST ne garde
+que certains de ces éléménts.)
 
 <p>Une fois l'AST construit, cette structure est plus simple pour le
 compilateur de la travailler. Un compilo C aurait analyser un certain

@@ -24,4 +24,4 @@ TOP_RULES=all list clean
 .PHONY: $(TOP_RULES) $(WEBSITES)
 $(TOP_RULES): $(WEBSITES)
 $(WEBSITES):
-	@cd WebSiteGenerator && $(MAKE) $(MAKECMDGOALS) WEBSITES=$(WEBSITES)
+	@cd WebSiteGenerator && $(MAKE) $(MAKECMDGOALS) WEBSITES=$(WEBSITES) -s
