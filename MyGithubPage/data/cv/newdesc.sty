@@ -1,0 +1,15 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{newdesc}[1998/01/03 v1.0a liste descriptive]
+\newlength{\descril}
+\setlength{\descril}{1cm}
+\DeclareOption*{\setlength{\descril}{\CurrentOption}%
+\PackageInfo{newdesc}{blabla}}
+\ProcessOptions\relax
+\renewenvironment{description}[1][\descril]{
+\begin{list}{\mbox{}}{
+\let\makelabel\descriptionlabel
+\leftmargin #1
+\labelwidth \leftmargin
+\labelsep 1mm
+\itemsep -0.5em}}
+{\end{list}}

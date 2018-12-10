@@ -1,0 +1,351 @@
+\documentclass{crcv}
+\usepackage{amstext,amsmath}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{picins}
+\usepackage{epsfig}
+\usepackage{hyperref}
+\usepackage{fourier-orns}
+
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\definecolor{fortitle}{rgb}{0.0,0.0,0.5}
+\hypersetup{colorlinks,breaklinks,linkcolor=darkblue,urlcolor=darkblue,anchorcolor=darkblue,citecolor=darkblue}
+
+\newcommand{\desc}[4]{
+\begin{description}
+\item[\textcolor{fortitle}{#1}]\hspace*{\fill}\textit{\textcolor{fortitle}{#2 -- #3: #4}}\\
+\end{description}
+}
+
+\newcommand{\descC}[3]{
+\begin{description}
+\item[\textcolor{fortitle}{#1}]\hspace*{\fill}\textit{\textcolor{fortitle}{#2: #3}}\\
+\end{description}
+}
+
+\newcommand{\descB}[2]{
+\begin{description}
+\item[\textcolor{fortitle}{#1}]\hspace*{\fill}\textit{\textcolor{fortitle}{#2}}\\
+\end{description}
+}
+
+\begin{document}
+\begin{center}{\Huge \textsc{Quentin \textcolor{fortitle}{Quadrat}} \large Computer Engineer in Real Time and Embedded Systems}\vspace{2mm}\end{center}
+
+\MakeEntete
+
+%\begin{center}Objective: challenging job in real time computing for embedded systems.\end{center}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Sum}mary}
+
+\begin{itemize}
+\item[$\bullet$] Come from EPITA a computer science engineering school with a mainly
+  C/Unix oriented background.
+\item[$\bullet$] Specialization in programming microcontrollers.
+\item[$\bullet$] Good skills on motor control, basic skills on Inertial Measurement Unit.
+\item[$\bullet$] Explored by myself other domains like electronics or
+  feedback and automatic control systems (Scilab/Scicos).
+\item[$\bullet$] Worked on several drones successfully commercialized.
+\end{itemize}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Soft}ware Development Experience}
+
+%% ---------------------------------------------------------------------------------------------------------
+\desc{Parrot Faurecia Automotive}{2017}{today}{Automotive middleware}
+
+\textit{Development for a proof of concept initially for
+Renault-Nissan then transformed as real project for McLaren.}
+
+\begin{itemize}
+\item[$\bullet$] C/C++ development in hypervised solution with 3
+  virtual machines: Linux, Android and real time OS.
+\item[$\bullet$] C++/java development in the Android (N.car then O) car
+  services framework. Implemented the Vehicle Hardware Abstraction Layer
+  (VHAL) aka an abstraction of the physical transport layer (like
+  CAN/LIN) for other Android services (java).
+\item[$\bullet$] Qt and QML development of a proof of concept car
+  cluster/dashboard displaying vehicle information from the VHAL
+  and tested on a concrete car.
+\item[$\bullet$] Linked the vehicle climate actuator to the Android
+  climate control application through the VHAL.
+\item[$\bullet$] Esterel, C development of the prototype of an ASIL
+  real time application supervising the cluster display through the
+  support of hardware.
+\item[$\bullet$] Made protocol libraries for allowing virtual machines
+  to communicate together (display output checker).
+\item[$\bullet$] Received a formation on ISO-26262.
+\item[$\bullet$] Wrote a methodology for knowing if a proposed
+  architecture will run in real-time (Petri, Grafcet, Max-Plus
+  algebra).
+\item[$\bullet$] Made the portage of Android N.car car services to
+  Android L for an older Parrot project.
+\item[$\bullet$] C, C++, Java, QML, Qt, Ethernet socket, unit
+  tests. Architecture specification. Methodology Scrum, Gerrit, Git,
+  Docker, gdb server.
+\end{itemize}
+
+%% ---------------------------------------------------------------------------------------------------------
+%\hrulefill\hspace{0.2cm} \floweroneleft\floweroneright \hspace{0.2cm} \hrulefill
+\desc{Parrot Drones}{Jan. 2011}{Jan. 2016}{Microcontroller developer}
+
+\textit{Development alone on the firmware of several generations of
+  Electronic Speed Controller (ESC) for the following drones: AR Drone
+  1 and 2, Bebop 1 and 2, Exom 1, Disco 1, Anafi. ESC are boards
+  driving brushless motor with a propeller.}
+
+\begin{itemize}
+\item[$\bullet$] Wrote the specification document (SA/RT).
+\item[$\bullet$] Wrote the brushless motor model and its regulator
+  in Scicos.
+\item[$\bullet$] Developed multiple firmware based on the 6 steps
+  motor commutation. Motors speed are drive with a closed loop
+  regulation for speed: PID, feedforward, Kalman filter for the speed
+  estimation. Power On Self Test are made like detecting if the motor
+  is plugged to its ESC. C/ASM for Atmel Atmega8. C and logic gates
+  programming (FPGA-style) for Cypress PoSC3 and Cypress PoSC5LP. A
+  single chip drives four motors.
+\item[$\bullet$] Developed bootloader firmware, bootloader protocol,
+  and flasher tool. Motor firmware are upgraded when the drone user
+  updates its smart-phone application.
+\item[$\bullet$] Developed protocols based on I$^2$C, spi, UART
+  (C/Linux/$\mu$C).
+\item[$\bullet$] Developed motor test bench controlling peripherals
+  (power supply, tachymeters...).
+\item[$\bullet$] Worked with the hardware team for evolving the
+  hardware of the ESC.
+\end{itemize}
+
+%% ---------------------------------------------------------------------------------------------------------
+%\hrulefill\hspace{0.2cm} \floweroneleft\floweroneright \hspace{0.2cm} \hrulefill
+\desc{Parrot Drones}{Jan. 2016}{Jan. 2017}{Microcontroller developer}
+
+\textit{Evolution of motor commutation. Worked on Field Oriented
+  Control (FOC) solution: motor torque and speed are estimated and
+  controlled.}
+
+\begin{itemize}
+\item[$\bullet$] Internship supervisor for implementing Field Oriented
+  Control firmware for controlling a motor in angle for a gimbal
+  project.
+\item[$\bullet$] Wrote a FOC model with Scicos for simulation.
+\item[$\bullet$] Firmware finally not developed internally by Parrot.
+\item[$\bullet$] Supervized the firmware delivery (developed by Active
+  Semi PAC2553). In contact with a US engineer for the firmware
+  evolution and development.
+\item[$\bullet$] Integrated the firmware for controlling in position a
+  gyro-stabilized pod (aka a camera gimbal). Integrated the firmware
+  for spinning propellers.
+\item[$\bullet$] Developed bootloader firmware, bootloader protocol,
+  bootloader tool and ICSP flasher tool based on STM board.
+\end{itemize}
+
+%% ---------------------------------------------------------------------------------------------------------
+%\hrulefill\hspace{0.2cm} \floweroneleft\floweroneright \hspace{0.2cm} \hrulefill
+\descC{Parrot Drones}{2 months}{Thermal calibration for IMU sensors}
+
+\textit{Development of a fast IMU thermal calibration process embedded
+  in the drone. Project constraint: thermal calibration is made during
+  the factory process and shall be as fast as possible.}
+
+\begin{itemize}
+\item[$\bullet$] Studied the state of art, worked with thermal chamber
+  and turntable pods, write specification document for the factory
+  process.
+\item[$\bullet$] Sensors thermal biases are removed.
+\item[$\bullet$] The IMU temperature is maintained fixed by the drone
+  (closed loop regulation) during its fly.
+\item[$\bullet$] Worked with hardware team, developed driver for
+  reading sensors.
+\item[$\bullet$] \href{https://bases-brevets.inpi.fr/en/document-en/FR3037672.html}{One patent realized}.
+\end{itemize}
+
+%% ---------------------------------------------------------------------------------------------------------
+%\hrulefill\hspace{0.2cm} \floweroneleft\floweroneright \hspace{0.2cm} \hrulefill
+\descB{Parrot Drones}{Canceled drone based sub-projects}
+\begin{itemize}
+\item[$\bullet$] Read outputs of different remote controls like PPM,
+  PPM-Sumed, Spektrum by an ATmega8 (canceled project).
+\item[$\bullet$] Reading the state of art for Simultaneous
+  Localization And Mapping (SLAM) algorithm.
+\end{itemize}
+
+%% ---------------------------------------------------------------------------------------------------------
+%\hrulefill\hspace{0.2cm} \floweroneleft\floweroneright \hspace{0.2cm} \hrulefill
+\desc{Eurogiciel}{2007}{2010}{Consulting for Sagem}
+
+\textit{Worked on fixing bugs in the code source of the Airbus A400M
+  inertial measurement unit (IMU) made by Sagem.}
+
+\begin{itemize}
+\item[$\bullet$] Analysis the IMU code source, locate and fix the bug.
+\item[$\bullet$] Reproduce the issue on a test bench by writing
+  non-regression scripts, summarized with document..
+\item[$\bullet$] Respect the DO-178B norm.
+\item[$\bullet$] Got a formation on the Esterel V6 software.
+\end{itemize}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Int}ernships}
+
+%% ---------------------------------------------------------------------------------------------------------
+\desc{INRIA}{September}{December 2005}{Code generation}
+
+\textit{Four months internship at the National Institute for Research
+  in Computer Science and Automatic Control on the development of
+  \href{http://www.syndex.org/}{SynDEx} a software used for generating
+  the code of distributed real time applications.}
+
+\begin{itemize}
+\item[$\bullet$] Development in OCaml, CamlTk, OCamllex, OCamlYacc and
+  M4 for evolving GUI, lexer and parser for allowing it to generate
+  the hosted code source that the user can store inside the GUI.
+\item[$\bullet$] Learning the law control and writing tutorials for
+  SynDEx where cars are following the previous car.
+\end{itemize}
+
+%% ---------------------------------------------------------------------------------------------------------
+%\hrulefill\hspace{0.2cm} \floweroneleft\floweroneright \hspace{0.2cm} \hrulefill
+\desc{INRIA}{January}{July 2007}{Car platooning}
+
+\textit{Continuation of the previous internship. Development of an
+  algorithm, based on the video stream of a single low cost camera,
+  for platooning electric cars named CyCab.}
+
+\begin{itemize}
+\item[$\bullet$] Retro-engineering the CyCab electronic architecture
+  (RTAI Linux and MPC555 boards) as well as its law control (C and
+  assembly code).
+\item[$\bullet$] Implement the original CyCab law control in Scicos
+  and translated it into SynDEx.
+\item[$\bullet$] Implement the platooning algorithm based on image
+  processing (PID control for the maintaining the distance with the
+  previous CyCab, Kalman filter for tracking the CyCab in the
+  picture), read pictures from a firewire camera.
+\item[$\bullet$] Buy a newer embedded desktop allowing a RTAI Linux
+  and for displaying the camera.
+\item[$\bullet$] Test on real situation with the CyCab.
+\end{itemize}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Edu}cation}
+\begin{description}
+\item[\textcolor{fortitle}{2001--2007}] EPITA school: Ecole Pour l'Informatique et les Techniques Avanc\'ees.
+% C/Unix oriented background with a specialization in real time computing and embedded systems.
+%\item[2001] High school diploma in science (Baccalaur\'eat S).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{French}] Mother tongue.
+\item[\textcolor{fortitle}{English}] Fluent, 775 at TOEIC.
+\item[\textcolor{fortitle}{Spanish}] Beginner.
+\end{description}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Comp}uter skills}
+\begin{description}
+\item[\textcolor{fortitle}{Languages}] C, C++11, Esterel, OCaml, Delphi, Forth, currently learning Julia.
+\item[\textcolor{fortitle}{GNU/Linux}] git, bash, M4, Makefile, gdb(server), valgrind, emacs, flex/bison.
+\item[\textcolor{fortitle}{Lib}] GTKmm, OpenGL core, \LaTeX.
+\item[\textcolor{fortitle}{Tests}] gmock/gtest, crpcut, cppunit, gcov.
+\item[\textcolor{fortitle}{CI}] Travis-CI, OpenSuse Build, coverity scan.
+\item[\textcolor{fortitle}{Sys.\;Analysis}] Real-Time Structured methods (SART), plantuml.
+\item[\textcolor{fortitle}{Embedded}] Digital electronics, oscilloscopes, Cypress PsoC3/5,
+  Active Semi PAC2553, Cortex M0, PIC16F (assembly language), dsPIC30F
+  (C language), UART, I$^2$C, SPI.
+\item[\textcolor{fortitle}{Control}] Scilab, Scicos, SynDEx, Automatic control systems learnt with internships and projects.
+\item[\textcolor{fortitle}{Norms}] ISO-26262, DO-178B.
+\end{description}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Pers}onal Github projects}
+
+\begin{description}
+\item[\textcolor{fortitle}{Chess}] Chess project in C++ for learning
+  neural network. The AI shall learn how to move pieces on the
+  chessboard.  Learning Julia language and frameworks like Knet and
+  TensorFlow.
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{SimTaDyn}] Project for creating dynamic
+  geographic maps and manipulate them as spreadsheet. C++, Forth,
+  GTKmm, OpenGL core.
+\end{description}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{EPITA} projects}
+
+\begin{description}
+\item[\textcolor{fortitle}{Helicopter}] Studies and realization of a
+  four-rotor heads micro indoor model helicopter~: computer-based
+  control (Scilab) and embedded system (2 dsPIC micro-controllers,
+  acceleration sensor, 4 brushed motor drivers) 1 year, 1 people,
+  annual report.
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Car}] 3D simulator game made in Delphi and
+  OpenGL. The player drives a car inside a city with its traffic
+  jam. The car dynamic is simulated (1 year, 2 peoples, annual
+  report).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Processor}] Study and simulate of a CISC
+  micro-processor based on an FPGA emulation software (MaxPlus2).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Bash}] Developed an Unix Shell commands
+  interpreter in C (1 month, 6 peoples).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Tiger}] Developed a Tiger language compiler
+  in C++, Flex and Bison (4 months, 4 peoples).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Lisp}] Developed a Common Lisp language
+  interpreter in OCaml (1 week, 3 peoples).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Forth}] Developed a Forth language
+  interpreter in C, for the SimTaDyn project (alone). Forth is a stack
+  language running inside a virtual machine. Forth has no syntax but
+  the syntax can self evolve.
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Corewar}] Developed in C a virtual machine
+  executing assembly language files simulating concurrent viruses with
+  the theme a race tournament.
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Recalage}] Find a rigid transformation
+  which matches a cloud of points with a surface (2 weeks, 1 people).
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{PDE}] Solver of partial derivative
+  equations with the finished difference method written in C.
+\end{description}
+
+\begin{description}
+\item[\textcolor{fortitle}{Bistro}] Big numbers calculator written in
+  C (2 weeks, 2 peoples).
+\end{description}
+
+%% =========================================================================================================
+\section{\textcolor{fortitle}{Oth}er}
+Fish tank, chess player, role play games.
+
+\end{document}
