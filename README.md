@@ -24,8 +24,3 @@ See https://github.com/Lecrapouille/WebSiteGenerator documentation
 The `make` command to build you website. If successful, should have created a directory `build`.
 Then, for example, you can move generate files to your github.io directory and commit them
 (in my case: https://github.com/Lecrapouille/Lecrapouille.github.io).
-
-## License
-
-Articles (m4 files) on MyGithubPage, as well as generated html files are under the Creative Commons licence: they are free, sharable with the same conditions with no commercial usage allowed.
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/fr/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 France</a>.
