@@ -103,11 +103,13 @@ téléchargées ici. Cette version fonctionne sur une Ubuntu 16.04 et à
 l'époque sur Mac Os X 10.3 avec X11. La compilation n'a jamais été
 testé pour Windows.</p>
 
-TABLE(2,LINK(simtadyn/simtadyn_soutenance4.pdf,Le rapport),
-LINK(simtadyn/simtadyn_sources.tar.gz,Les Sources de SimTaDyn 2004),
-ICON_PDF,ICON_TGZ,
+TABLE(3,LINK(simtadyn/simtadyn.pdf,Le rapport),
+LINK(https://github.com/Lecrapouille/SimTaDyn/releases/tag/v0.1,Les Sources de SimTaDyn 2004),
+LINK(https://github.com/Lecrapouille/SimTaDyn/releases/tag/v0.4,Les Sources de SimTaDyn 2019),
+ICON_PDF,ICON_TGZ,ICON_TGZ,
 400 Ko --- format PDF,
-500 Ko --- format TAR.GZ) dnl REFAIRE la tarball legacy qui compile bien
+500 Ko --- format TAR.GZ,
+1.4Mo --- format TAR.GZ)
 
 SUBSECTION(ICON_GEAR,Avancement,avancement)
 
