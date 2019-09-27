@@ -23,25 +23,25 @@ PICTURE(tuto/dyna/voiture.png))
 CENTER(Cliquer sur les images pour les agrandir.)
 
 LIST(Une brêve introduction au
-  LINK(dyna/dyna_action.pdf,principe de la moindre action)[,] plus un
+  LINK(tuto/dyna/dyna_action.pdf,principe de la moindre action)[,] plus un
     petit exemple.,
-  LINK(dyna/dyna_monocycle.pdf,L'étude d'un monocycle)[ : le
+  LINK(tuto/dyna/dyna_monocycle.pdf,L'étude d'un monocycle)[ : le
     véhicule est modélisé en 2D, par une carcasse
     de masse ponctuelle accrochée à une roue par un
     ressort.],
-  LINK(dyna/dyna_moto.pdf,L'étude d'une moto)[ : le
+  LINK(tuto/dyna/dyna_moto.pdf,L'étude d'une moto)[ : le
     véhicule est modélisé en 2D, par une carcasse
     représentée par une barre de masse ponctuelle
     à laquelle sont accrochées deux roues par des
     ressorts. La carcasse n'a pas d'inertie et seul le tangage est
     modélisé.],
-  LINK(dyna/dyna_voit.pdf,L'étuded'une voiture)[ :
+  LINK(tuto/dyna/dyna_voit.pdf,L'étuded'une voiture)[ :
     le véhicule est modélisé en 3D,
     par une carcasse représentée par une plaque de masse
     ponctuelle à laquelle sont accrochées quatre roues par
     des ressorts. Par rapport au sujet précédent, on
     étudie en plus le roulis et la carcasse a une inertie.],
-  LINK(dyna/dyna_mvt_horizon.pdf,Le mouvement horizontal de la
+  LINK(tuto/dyna/dyna_mvt_horizon.pdf,Le mouvement horizontal de la
     voiture)[ : comment le véhicule tourne lorsqu'on tourne le
     volant.])
 END_BODY(simtadyn,Le projet SimTaDyn,,)
