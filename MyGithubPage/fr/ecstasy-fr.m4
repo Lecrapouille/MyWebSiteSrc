@@ -5,7 +5,8 @@ DESCRIPTION(A simple 3D car driving in a city with its traffic jam
 made in legacy OpenGL and Delphi for Windows)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
-LEFT_HEADINGS(HEADING_3D_GAME)
+LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Speedway,speedway-LANG.html,
+Prince moindre action,dyna-LANG.html))
 
 BEGIN_BODY
 FORKME(Ecstasy)

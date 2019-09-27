@@ -1,4 +1,4 @@
-TITLE(Projet SimTaDyn : Simulation Tableur Dynamique)
+TITLE(Système d'information géographique)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(GIS, geography, spreadsheet, forth, dynamical simulation)
 DESCRIPTION(A proof of concept project for a geographic information system)
@@ -8,7 +8,7 @@ LEFT_HEADINGS(HEADING_SIMATDYN_LIKE)
 
 BEGIN_BODY
 FORKME(SimTaDyn)
-SECTION(Le projet SimTaDyn)
+SECTION(Le projet SimTaDyn : Simulation Tableur Dynamique)
 SUBSECTION(ICON_READ,Présentation,intro)
 
 <p>SimTaDyn (acronyme pour Simulation Tableur Dynamiquge) est un

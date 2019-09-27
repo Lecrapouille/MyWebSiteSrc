@@ -1,4 +1,4 @@
-TITLE(Projet SpeedWay)
+TITLE(Jeu 3D)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(3D shoot game, Delphi, OpenGL, EPITA)
 DESCRIPTION(A simple 3D shoot game made in legacy OpenGL and Delphi for Windows)
@@ -7,7 +7,7 @@ SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 LEFT_HEADINGS(HEADING_3D_GAME)
 
 BEGIN_BODY
-FORKME(SpeedWay)
+FORKME(speedway)
 SECTION(Le projet SpeedWay)
 SUBSECTION(ICON_READ,Présentation,intro)
 

@@ -1,14 +1,12 @@
 body {
-     font-family:       "Trebuchet MS", Arial, sans-serif;
-     font-size:         small;
+     font-family:       Arial;
      margin:            3px 0 10px 20px;
      background:        #ccc;
 
 }
 
 #document {
-     font-family:       "Trebuchet MS", Arial, sans-serif;
-     font-size:         small;
+     font-family:       Arial;
      margin:            3px 0 0 20px;
      width:             95%;
      padding:           0;
