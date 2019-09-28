@@ -8,7 +8,7 @@ BEGIN_BODY
 SECTION(Découverte du logiciel SynDEx)
 SUBSECTION(ICON_READ,Présentation,pres)
 
-<p>Nous avons vu MYLINK(tuto/scicos,dans ce tutoriel), que le logiciel
+<p>Nous avons vu MYLINK(scicos,dans ce tutoriel), que le logiciel
 SCILAB peut facilement intégrer des bibliothèques écrites en
 langage C pour interagir avec des systèmes embarqués via des capteurs
 ou des actionneurs (caméra, joystick, port série). Nous avons
@@ -69,7 +69,7 @@ l'algorithme et l'architecture. Celle-ci consiste à choisir parmi
 toutes les transformations proposées celle qui optimise les
 performances temps réel.</p>
 
-CAPTION_PICTURE(tuto/syndex/AAA,Diagramme résumant la méthodologie AAA.)
+CAPTION_PICTURE(syndex/AAA.jpg,Diagramme résumant la méthodologie AAA.)
 
 SUBSECTION(ICON_READ,Qu'est ce que SynDEx ?,what)
 
@@ -91,7 +91,7 @@ se compose de sommets et d'arcs. Un sommet est une opération et un arc
 un flot de données, c'est-à-dire un transfert de données entre deux
 opérations.</p>
 
-CAPTION_PICTURE(tuto/syndex/algo,Exemple de graphe d'algorithme sous SynDEx.)
+CAPTION_PICTURE(syndex/algo.jpg,Exemple de graphe d'algorithme sous SynDEx.)
 
 <p>Une opération peut-être soit un calcul (comme une addition), soit
 une mémoire d'état (retard), soit un conditionnement ou encore une
@@ -112,7 +112,7 @@ processeurs ou deux médias. Chaque sommet est une machine séquentielle
 qui séquence soit des opérations de calcul pour les processeurs, soit
 des opérations de communications pour les médias de communications.</p>
 
-CAPTION_PICTURE(tuto/syndex/archi,Exemple de graphe d'architecture sous SynDEx.)
+CAPTION_PICTURE(syndex/archi.jpg,Exemple de graphe d'architecture sous SynDEx.)
 
 <p>Un processeur et les médias de communication sont des représentations
 abstraites de ce que peut être un PC, un Macintosh, un processus
@@ -169,9 +169,9 @@ et blancs) et de médias de communication (ronds bleus et arcs)],
 version leur période).])
 
 TABLE(3,
-CAPTION_PICTURE(tuto/syndex/algo,Graphe d'algorithme),
-CAPTION_PICTURE(tuto/syndex/archi,Draphe d'architecture),
-CAPTION_PICTURE(tuto/syndex/duration,Durée des opérations))
+CAPTION_PICTURE(syndex/algo.jpg,Graphe d'algorithme),
+CAPTION_PICTURE(syndex/archi.jpg,Draphe d'architecture),
+CAPTION_PICTURE(syndex/duration.jpg,Durée des opérations))
 
 SUBSECTION(ICON_READ,Sorties de SynDEx,output)
 
@@ -200,8 +200,8 @@ l'opération orange et la couleur rouge indique les opérations qui
 s'exécutent après l'opération orange.])
 
 TABLE(2,
-CAPTION_PICTURE(tuto/syndex/schedul,Agenda des tâches),
-CAPTION_PICTURE(tuto/syndex/executif,Exécutif))
+CAPTION_PICTURE(syndex/schedul.jpg,Agenda des tâches),
+CAPTION_PICTURE(syndex/executif.jpg,Exécutif))
 
 <p>Un exécutif est la représentation algorithmique de l'agenda. A
 chaque colonne, un exécutif lui correspond. Il y a donc un exécutif
@@ -357,5 +357,7 @@ send_(prep_message_out,dsPIC30F,dsPICmaitre,MacBook)
 envoie le tout le contenu du tableau prep_message_out de notre
 processeur dsPICmaitre (toujours du type dsPIC) à l'autre processeur
 MacBook.
+
+SUBSECTION(ICON_BUILD, TODO)
 
 END_BODY(simtadyn,Le projet SimTaDyn,,)
