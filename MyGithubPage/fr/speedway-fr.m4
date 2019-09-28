@@ -1,4 +1,4 @@
-TITLE(Jeu 3D)
+TITLE(Jeu 3D Shoot 'em Up)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(3D shoot game, Delphi, OpenGL, EPITA)
 DESCRIPTION(A simple 3D shoot game made in legacy OpenGL and Delphi for Windows)

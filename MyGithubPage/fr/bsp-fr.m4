@@ -1,8 +1,8 @@
-TITLE(Tutoriel: BSP)
+TITLE(Elimination des parties cachées)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(Les arbres de partitionnement binaire de l'espace)
 DESCRIPTION()
-SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
+SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
 LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Ecstasy,ecstasy-LANG.html))
 

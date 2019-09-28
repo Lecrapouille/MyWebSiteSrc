@@ -1,8 +1,8 @@
-TITLE(Machine Learning)
+TITLE(Algébre pour la synchronisation)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(maxplus tropical algebra petri)
 DESCRIPTION(maxplus algebra)
-SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
+SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
 LEFT_HEADINGS(HEADING_3D_GAME)
 

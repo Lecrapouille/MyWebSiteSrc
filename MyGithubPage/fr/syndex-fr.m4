@@ -2,7 +2,7 @@ TITLE(Logiciel de génération de code distribué SynDEx)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(SynDEx software)
 DESCRIPTION(A introduction to SynDEX software developped by INRIA)
-SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
+SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
 BEGIN_BODY
 SECTION(Découverte du logiciel SynDEx)

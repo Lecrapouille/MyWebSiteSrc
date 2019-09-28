@@ -2,7 +2,7 @@ TITLE(Interpréteur Forth)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(Forth language)
 DESCRIPTION(A introduction to Forth language)
-SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
+SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
 BEGIN_BODY
 SECTION(Le langage Forth)

@@ -1,14 +1,14 @@
-TITLE(Tutoriel: Dynamique)
+TITLE(Principe de la moindre action) 
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(Dynamique principe de la moindre action)
 DESCRIPTION(Dynamique d'une voiture et principe de la moindre action)
-SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
+SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
 LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Ecstasy,ecstasy-LANG.html))
 
 BEGIN_BODY
 FORKME(MySlides)
-SECTION(ICON_READ,Principe de la moindre action,contexte)
+SECTION(ICON_READ,Tutorial: Dynamique simplifiée d'un véhicule,contexte)
 
 <p>Comment simuler simplement la dynamique d'une voiture (pour l'implémenter
    dans un jeu par exemple) ? Je tiens à remercier mon pêre pour me

@@ -1,4 +1,4 @@
-TITLE(Projet Ecstasy)
+TITLE(Jeu 3D Off Road)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(3D shoot game, Delphi, OpenGL, EPITA)
 DESCRIPTION(A simple 3D car driving in a city with its traffic jam
