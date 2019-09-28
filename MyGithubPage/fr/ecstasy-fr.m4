@@ -52,19 +52,19 @@ sources. Ce projet n'a pas été conçu pour fonctionner pour Linux, Mac
 OS X car Window XP 32-bits était imposé par nos
 professeurs.</p>
 
-TABLE(3,LINK(ecstasy/ecstasy1_setup.rar,Ecstasy version 2002),
-LINK(ecstasy/ecstasy1_light.rar,Version légère version 2002),
-LINK(ecstasy/ecstasy1_sources.rar,Les sources version 2002),
+TABLE(3,LINK(ecstasy/ecstasy1_setup.rar,Setup Ecstasy version 2002 Windows XP),
+Version légère version 2002,
+LINK(ecstasy/ecstasy1_sources.tar.bz2,Les sources version 2002),
 ICON_TGZ,ICON_TGZ,ICON_TGZ,
 9 Mo --- format RAR,
 3.4 Mo --- format RAR,
-1.7 Mo --- format RAR,
-LINK(ecstasy/ecstasy2.rar,Ecstasy Windows XP 32-bits version 2017),
-LINK(ecstasy/ecstasy2_sources.rar,Les sources version 2017),
-LINK(ecstasy/ecst_sout4.pdf,Le rapport),
+1.0 Mo --- format TBZ2,
+Binaire Ecstasy Windows XP 32-bits version 2017,
+LINK(ecstasy/ecstasy2_sources.tar.bz2,Les sources version 2019),
+LINK(ecstasy/ecstasy.pdf,Le rapport),
 ICON_TGZ,ICON_TGZ,ICON_PDF,
 6 Mo --- format RAR,
-1.5 Mo --- format RAR,
+1.0 Mo --- format TBZ2,
 500 Ko --- format PDF)
 
 <p>Remarques:</p>

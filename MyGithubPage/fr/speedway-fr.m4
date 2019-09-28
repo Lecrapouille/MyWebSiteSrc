@@ -58,9 +58,10 @@ SUBSECTION(ICON_DOWNLOAD,Téléchargement,download)
    été toutes stockées sur le repo git. Vous pouvez les télécharger
    ci-dessous.</p>
 
-TABLE(3,LINK(speedway/speedway_soutenance4.pdf,Le
-rapport),LINK(speedway/speedway.rar,SpeedWay version
-0.1),LINK(speedway/speedway_sources.rar, Les Sources Delphi),
+TABLE(3,
+LINK(speedway/speedway.pdf,Le rapport),
+LINK(speedway/speedway.rar,SpeedWay version 0.1),
+LINK(speedway/speedway_sources.rar, Les Sources Delphi),
 ICON_PDF,ICON_TGZ,ICON_TGZ, 100 Ko --- format PDF, 10 Mo --- format
 RAR, 750 Ko --- format RAR)
 
