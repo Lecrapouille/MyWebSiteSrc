@@ -692,7 +692,7 @@ possible d'atteindre le début de l'entrée en décrémentant la valeur de
 l'adresse et en appliquant au contenu de l'adresse l'opération OU
 bit à bit avec la valeur hexadécimale 80.</p>
 
-<p>Le script suivant :</p>
+<p>ICON_BUILD Le script suivant :</p>
 CODE[]RED(: CFA) GREEN(2) GREY(-) ORANGE(;) GREY(( PFA -- CFA))
 RED(: LFA) GREEN(2) GREY(-) ORANGE(;) GREY(( CFA -- LFA))
 RED(: NFA) GREY(( CFA -- LFA))
@@ -1143,6 +1143,7 @@ Où 0xe8 et la différence d'adresse entre le HERE du DO et le HERE du
 
 SUBSECTION(ICON_GEAR,Fonctionnement de interpréteur interne,interpreteur)
 
+ICON_BUILD
                                     dnl parler du code assembleur dans le Forth
 
                                     Expliquer le mot COMPILE
@@ -1150,6 +1151,8 @@ SUBSECTION(ICON_GEAR,Fonctionnement de interpréteur interne,interpreteur)
 SUBSECTION(ICON_GEAR,Variables et constante,var)
 
 dnl a placer apres le dico
+
+ICON_BUILD
 
 <p>Nous avons vu que Forth permet de stocker des mots Forth mais il
 peut également servir à stocker de la mémoire. En effet on a dit dans
@@ -1167,6 +1170,6 @@ dnl assembleur
 
 SUBSECTION(ICON_GEAR,Un langage evolutif,evol)
 
-BUILD DOES, OO
+ICON_BUILD BUILD DOES, OO
 
 END_BODY(simtadyn,Le projet SimTaDyn,,)

@@ -6,7 +6,7 @@ made in legacy OpenGL and Delphi for Windows)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
 LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Speedway,speedway-LANG.html,
-Prince moindre action,dyna-LANG.html))
+Prince de moindre action,dyna-LANG.html))
 
 BEGIN_BODY
 FORKME(Ecstasy)
