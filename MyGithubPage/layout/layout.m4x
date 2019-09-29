@@ -125,7 +125,7 @@ HTML_HEADER
   <tr>
     <!-- BEGIN LEFT BORDER -->
     <td id="left_border">
-        <div id="menu">
+        <div id="floating_border">
            <!-- Translated Pages -->
            CHANGE_LANGUAGE
 
