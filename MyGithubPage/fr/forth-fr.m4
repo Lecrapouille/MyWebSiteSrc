@@ -1172,4 +1172,4 @@ SUBSECTION(ICON_GEAR,Un langage evolutif,evol)
 
 ICON_BUILD BUILD DOES, OO
 
-END_BODY(simtadyn,Le projet SimTaDyn,,)
+END_BODY(dyna,Principe moindre action,maxplus,Boîte à outils Max+)

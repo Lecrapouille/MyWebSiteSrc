@@ -1,4 +1,4 @@
-TITLE(Principe de la moindre action) 
+TITLE(Principe de la moindre action)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(Dynamique principe de la moindre action)
 DESCRIPTION(Dynamique d'une voiture et principe de la moindre action)
@@ -44,4 +44,4 @@ LIST(Une brêve introduction au
   LINK(tuto/dyna/dyna_mvt_horizon.pdf,Le mouvement horizontal de la
     voiture)[ : comment le véhicule tourne lorsqu'on tourne le
     volant.])
-END_BODY(simtadyn,Le projet SimTaDyn,,)
+END_BODY(bsp,Elémination des parties cachées,forth,Forth)

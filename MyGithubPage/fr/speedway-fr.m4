@@ -127,4 +127,4 @@ LIST(OpenGl et Delphi :
             ICON_EN Le site de GameTutorials : EXTLINK(https://github.com/gametutorials/tutorials).)
 )
 
-END_BODY(,,ecstasy,Le projet Ecstasy)
+END_BODY(simatadyn,Le projet SimTaDyn,ecstasy,Le projet Ecstasy)

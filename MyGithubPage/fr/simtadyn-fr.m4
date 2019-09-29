@@ -155,4 +155,4 @@ LIST(STRONG(Interpréteur Forth:) fonctionnel mais manque encore des mots de
 
   STRONG(Application:) seule la version legacy proposait un petit exemple.)
 
-END_BODY(ecstasy,Le projet Ecstasy,myforth,Interpréteur Forth)
+END_BODY(chessneuneu,Le projet ChessNeuNeu,speedway,Le projet SpeedWay)

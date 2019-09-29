@@ -26,7 +26,7 @@ présentation de l'utilisation de l'algèbre maxplus sur des chaînes d'usinage.)
 
 SUBSECTION(ICON_READ,Références,ref)
 
-LIST(LINK(http://www.scicoslab.org/,ScicosLab Homepage) 
+LIST(LINK(http://www.scicoslab.org/,ScicosLab Homepage)
 [of the official Scilab fork developed by some of the researchers who originally developed Scilab at INRIA and ENPC.
 This version contains a max-plus toolbox. Inside ScicosLab you can have a max-plus demonstration. Go the Demos
 menu and select Maxplus demos. A pdf tutorial is available here explaining the demo. For the help of max+ functions
@@ -36,4 +36,4 @@ directly the max-plus toolbox.],
 LINK(https://jpquadrat.github.io/,J.P. Quadrat) [Homepage of one of the authors of the ScicosLab max+ toolbox.
 The site contains many pdf documents about max+ algebra and applications (such as traffic jam).])
 
-END_BODY(,,ecstasy,Le projet Ecstasy)
+END_BODY(forth,Forth,syndex,SynDEx)

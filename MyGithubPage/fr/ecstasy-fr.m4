@@ -200,4 +200,4 @@ LIST(OpenGl et Delphi :
             ICON_EN Le site de GameTutorials : EXTLINK(https://github.com/gametutorials/tutorials).)
 )
 
-END_BODY(speedway,Le projet SpeedWay,simtadyn,Le projet SimTaDyn)
+END_BODY(speedway,Le projet SpeedWay,chessneuneu,Le projet ChessNeuNeu)

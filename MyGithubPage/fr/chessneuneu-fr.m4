@@ -11,4 +11,4 @@ FORKME(ChessNeuNeu)
 SECTION(Le projet ChessNeuNeu)
 SUBSECTION(ICON_READ,Présentation,intro)
 
-END_BODY(,,ecstasy,Le projet Ecstasy)
+END_BODY(ecstasy,Le projet Ecstasy,simtadyn,Le projet SimTaDyn)

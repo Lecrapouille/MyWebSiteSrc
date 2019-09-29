@@ -360,4 +360,4 @@ MacBook.
 
 SUBSECTION(ICON_BUILD, TODO)
 
-END_BODY(simtadyn,Le projet SimTaDyn,,)
+END_BODY(maxplus,Boîte à outils Max+,bsp,Elémination des parties cachées)

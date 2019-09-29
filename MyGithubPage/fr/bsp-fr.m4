@@ -62,4 +62,4 @@ SUBSECTION(ICON_GEAR,Liens concernant les arbres BSP,links)
   <li>Beaucoup d'autres sites web parlent et inmplémente des arbres BSP dans leur jeu (EXTLINK(http://www.gametutorials.com/,gametutorials), EXTLINK(http://www.gamedev.net/,GameDev). Google est votre ami !</li>
 </ul>
 
-END_BODY(simtadyn,Le projet SimTaDyn,,)
+END_BODY(syndex,SynDEX,dyna,Principe moindre action)
