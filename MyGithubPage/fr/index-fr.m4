@@ -1,10 +1,8 @@
-TITLE(Quentin Quadrat - Ingénieur informaticien systèmes temps réel)
+TITLE(Page personelle de Quentin Quadrat)
 AUTHOR(Quentin Quadrat,Creative Common BY-NC-SA)
 KEYWORDS(Temps réel, page personelle, EPITA)
 DESCRIPTION(page personelle Quentin Quadrat)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_CV)
-
-dnl HEADER_MENU(CV,cv,Stage,syndex_presentation,ASE,ase,BSP,bsp,Dynamique,dyna,SpeedWay,speedway,Ecstasy,ecstasy,SimTaDyn,simtadyn,Forth,myforth,Helico,helico_intro,Home,X)
 
 BEGIN_BODY
 FORKME()
