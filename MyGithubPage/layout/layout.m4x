@@ -65,7 +65,7 @@ display_all_items_(shift($@))dnl
 dnl #####################################################################
 dnl Left Heading: is a box with links located on the left of the page
 dnl #####################################################################
-define([LEFT_HEADINGS],[divert(DIVERT_LEFT_BORDER)
+define([LEFT_BORDER],[divert(DIVERT_LEFT_BORDER)
 $@])
 dnl #####################################################################
 dnl Left heading specific for the page
@@ -89,7 +89,7 @@ dnl -------------------------------------
 dnl            Footer
 dnl #####################################################################
 define([BEGIN_BODY],[divert(DIVERT_BODY)])
-define([END_BODY],[create_toc[]divert(DIVERT_FOOTER)
+define([END_BODY],[divert(DIVERT_FOOTER)
 divert
 HTML_HEADER
 <table id="document">
@@ -129,8 +129,6 @@ HTML_HEADER
         <div id="menu">
            <!-- Translated Pages -->
            CHANGE_LANGUAGE
-
-           TABLE_OF_CONTENTS
 
            <!-- BEGIN LEFT BORDER DIVERSION -->
            undivert(DIVERT_LEFT_BORDER)

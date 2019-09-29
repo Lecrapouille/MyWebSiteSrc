@@ -4,8 +4,6 @@ KEYWORDS(3D shoot game, Delphi, OpenGL, EPITA)
 DESCRIPTION(A simple 3D shoot game made in legacy OpenGL and Delphi for Windows)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
-LEFT_HEADINGS(HEADING_3D_GAME)
-
 BEGIN_BODY
 FORKME(speedway)
 SECTION(Le projet SpeedWay)
@@ -127,4 +125,5 @@ LIST(OpenGl et Delphi :
             ICON_EN Le site de GameTutorials : EXTLINK(https://github.com/gametutorials/tutorials).)
 )
 
+LEFT_BORDER(TABLE_OF_CONTENTS HEADING_3D_GAME)
 END_BODY(simatadyn,Le projet SimTaDyn,ecstasy,Le projet Ecstasy)

@@ -360,4 +360,5 @@ MacBook.
 
 SUBSECTION(ICON_BUILD, TODO)
 
+LEFT_BORDER(TABLE_OF_CONTENTS)
 END_BODY(maxplus,Boîte à outils Max+,bsp,Elémination des parties cachées)

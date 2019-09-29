@@ -5,9 +5,6 @@ DESCRIPTION(A simple 3D car driving in a city with its traffic jam
 made in legacy OpenGL and Delphi for Windows)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
-LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Speedway,speedway-LANG.html,
-Prince de moindre action,dyna-LANG.html))
-
 BEGIN_BODY
 FORKME(Ecstasy)
 SECTION(Le projet Ecstasy)
@@ -200,4 +197,5 @@ LIST(OpenGl et Delphi :
             ICON_EN Le site de GameTutorials : EXTLINK(https://github.com/gametutorials/tutorials).)
 )
 
+LEFT_BORDER(TABLE_OF_CONTENTS HEADING(TRANS_SAME_PROJ,Speedway,speedway-LANG.html,Prince de moindre action,dyna-LANG.html))
 END_BODY(speedway,Le projet SpeedWay,chessneuneu,Le projet ChessNeuNeu)

@@ -4,8 +4,6 @@ KEYWORDS(Les arbres de partitionnement binaire de l'espace)
 DESCRIPTION()
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
-LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Ecstasy,ecstasy-LANG.html))
-
 BEGIN_BODY
 FORKME(MySlides)
 SECTION(Les arbres de partitionnement binaire de l'espace)
@@ -62,4 +60,5 @@ SUBSECTION(ICON_GEAR,Liens concernant les arbres BSP,links)
   <li>Beaucoup d'autres sites web parlent et inmplémente des arbres BSP dans leur jeu (EXTLINK(http://www.gametutorials.com/,gametutorials), EXTLINK(http://www.gamedev.net/,GameDev). Google est votre ami !</li>
 </ul>
 
+LEFT_BORDER(TABLE_OF_CONTENTS)
 END_BODY(syndex,SynDEX,dyna,Principe moindre action)

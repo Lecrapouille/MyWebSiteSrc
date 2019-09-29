@@ -4,8 +4,6 @@ KEYWORDS(GIS, geography, spreadsheet, forth, dynamical simulation)
 DESCRIPTION(A proof of concept project for a geographic information system)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_3D)
 
-LEFT_HEADINGS(HEADING_SIMATDYN_LIKE)
-
 BEGIN_BODY
 FORKME(SimTaDyn)
 SECTION(Le projet SimTaDyn : Simulation Tableur Dynamique)
@@ -155,4 +153,5 @@ LIST(STRONG(Interpréteur Forth:) fonctionnel mais manque encore des mots de
 
   STRONG(Application:) seule la version legacy proposait un petit exemple.)
 
+LEFT_BORDER(TABLE_OF_CONTENTS HEADING_SIMATDYN_LIKE)
 END_BODY(chessneuneu,Le projet ChessNeuNeu,speedway,Le projet SpeedWay)

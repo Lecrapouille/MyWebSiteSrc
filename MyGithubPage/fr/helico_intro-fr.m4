@@ -143,5 +143,6 @@ BOX
 <!--    ou mou mais il devra être suffisamment réactif pour -->
 <!--    assurer son rôle de gestion de la stabilité.</p> -->
 FINALBOX(,helico_etapes)
+
+LEFT_BORDER(TABLE_OF_CONTENTS)
 END_BODY
-HTML_FOOTER

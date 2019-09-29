@@ -1172,4 +1172,5 @@ SUBSECTION(ICON_GEAR,Un langage evolutif,evol)
 
 ICON_BUILD BUILD DOES, OO
 
+LEFT_BORDER(TABLE_OF_CONTENTS)
 END_BODY(dyna,Principe moindre action,maxplus,Boîte à outils Max+)

@@ -4,8 +4,6 @@ KEYWORDS(maxplus tropical algebra petri)
 DESCRIPTION(maxplus algebra)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
-LEFT_HEADINGS(HEADING_3D_GAME)
-
 BEGIN_BODY
 FORKME(MaxPlus.jl)
 SECTION(Boite à outils Max-Plus pour Julia)
@@ -36,4 +34,5 @@ directly the max-plus toolbox.],
 LINK(https://jpquadrat.github.io/,J.P. Quadrat) [Homepage of one of the authors of the ScicosLab max+ toolbox.
 The site contains many pdf documents about max+ algebra and applications (such as traffic jam).])
 
+LEFT_HEADINGS(TABLE_OF_CONTENTS HEADING_3D_GAME)
 END_BODY(forth,Forth,syndex,SynDEx)

@@ -4,8 +4,6 @@ KEYWORDS(Dynamique principe de la moindre action)
 DESCRIPTION(Dynamique d'une voiture et principe de la moindre action)
 SECONDARY_HEAD_MENU(SECONDARY_HEAD_MENU_TUTO)
 
-LEFT_HEADINGS(HEADING(TRANS_SAME_PROJ,Ecstasy,ecstasy-LANG.html))
-
 BEGIN_BODY
 FORKME(MySlides)
 SECTION(ICON_READ,Tutorial: Dynamique simplifiée d'un véhicule,contexte)
@@ -44,4 +42,6 @@ LIST(Une brêve introduction au
   LINK(tuto/dyna/dyna_mvt_horizon.pdf,Le mouvement horizontal de la
     voiture)[ : comment le véhicule tourne lorsqu'on tourne le
     volant.])
+
+LEFT_BORDER(TABLE_OF_CONTENTS HEADING(TRANS_SAME_PROJ,Ecstasy,ecstasy-LANG.html))
 END_BODY(bsp,Elémination des parties cachées,forth,Forth)

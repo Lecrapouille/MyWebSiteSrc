@@ -95,4 +95,5 @@ SUBSECTION(ICON_GEAR,Suivi automatique de voitures,cycab,stage2)
    été de poursuivre un travail mené sur le suivi automatique de CyCabs avec une
    caméra bas coût et les logiciels Scilab, Scicos et SynDEx.</p>
 
+LEFT_BORDER()
 END_BODY(,,ecstasy,Le projet Ecstasy)
