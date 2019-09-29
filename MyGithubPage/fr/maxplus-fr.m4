@@ -34,5 +34,5 @@ directly the max-plus toolbox.],
 LINK(https://jpquadrat.github.io/,J.P. Quadrat) [Homepage of one of the authors of the ScicosLab max+ toolbox.
 The site contains many pdf documents about max+ algebra and applications (such as traffic jam).])
 
-LEFT_HEADINGS(TABLE_OF_CONTENTS HEADING_3D_GAME)
+LEFT_BORDER(TABLE_OF_CONTENTS)
 END_BODY(forth,Forth,syndex,SynDEx)

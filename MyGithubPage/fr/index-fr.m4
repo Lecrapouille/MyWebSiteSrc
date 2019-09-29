@@ -40,6 +40,10 @@ SUBSECTION(ICON_EYES,Ecstasy,ecstasy,ecstasy)
    système mécanique à 9 degrés de liberté.</p>
 
 SECTION(Tutoriels)
+SUBSECTION(ICON_GEAR,Boite à outils Max-Plus,maxplus,maxplus)
+
+<p>Portage de la boite à outil Max-Plus de ScicosLab pour Julia.</p>
+
 SUBSECTION(ICON_READ,Principe moindre action,dyna,dyna)
 
 <p>Comment simuler une voiture avec sa suspension dans un jeu ? Tout d'abord,
@@ -71,10 +75,6 @@ SUBSECTION(ICON_READ,Elimination des parties cachées,bsp,bsp)
    proches.</p>
 
 SECTION(Projets sur les systèmes embarqués et le temps réel)
-SUBSECTION(ICON_GEAR,Boite à outils Max-Plus,maxplus,maxplus)
-
-<p>Portage de la boite à outil Max-Plus de ScicosLab pour Julia.</p>
-
 SUBSECTION(ICON_GEAR,Hélicopètre quatre rotors,helico,helico_intro)
 
 <p>Projet étudiant: Etude et réalisation d'une plateforme volante à quatre
@@ -95,5 +95,9 @@ SUBSECTION(ICON_GEAR,Suivi automatique de voitures,cycab,stage2)
    été de poursuivre un travail mené sur le suivi automatique de CyCabs avec une
    caméra bas coût et les logiciels Scilab, Scicos et SynDEx.</p>
 
-LEFT_BORDER()
+LEFT_BORDER(
+HEADING(Projets informatiques,SimTaDyn,simtadyn-LANG.html,ChessNeuNeu,chessneuneu-LANG.html,SpeedWay,speedway-LANG.html,Ecstasy,ecstasy-LANG.html)
+HEADING(Tutoriels,Principe moindre action,dyna-LANG.html,Forth,forth-LANG.html,Esterel,esterel-LANG.html,Elimination des parties cachées,bsp-LANG.html)
+HEADING(Projets sur les systèmes embarqués et le temps réel,Hélicoptère 4 rotors,helico_intro-LANG.html,Suivi automatique de voitures,stage2-LANG.html)
+)
 END_BODY(,,ecstasy,Le projet Ecstasy)
