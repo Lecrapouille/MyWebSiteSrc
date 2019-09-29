@@ -1,10 +1,10 @@
 dnl -*- m4 -*- Coloration Syntaxique pour Emacs
-dnl #####################################################################
+dnl =====================================================================
 dnl Head menu.
 dnl The head menu is composed of two horizontal menus: the primary and
 dnl the secondary. The primary showdisplays the website categories while
 dnl the secondary displays differents articles.
-dnl #####################################################################
+dnl =====================================================================
 dnl Helper macros for building head menu (primary and secondary)
 define([display_all_menu_elements_],[ifelse($2,,,$2,THISFILE,[<li id="_which_menu_item_active_">$1</li>
 display_all_menu_elements_(shift(shift($@)))],
@@ -37,19 +37,19 @@ define([PRIMARY_HEAD_MENU_1],[primary_head_menu(ITEM_EMBARQUE,helico_intro,ITEM_
 define([SECONDARY_HEAD_MENU_HOME],[secondary_head_menu(Home,index,Plan du site,plansite,Mises à jour,maj,C.V.,cv)])
 define([SECONDARY_HEAD_MENU_EMBARQUE],[secondary_head_menu(Voiture CyCab,stages_travail2,Hélicoptère 4 rotors,helico_intro)])
 define([SECONDARY_HEAD_MENU_3D],[secondary_head_menu(Chess,chessneuneu,Ecstasy,ecstasy,SpeedWay,speedway,SimTaDyn,simtadyn)])
-define([SECONDARY_HEAD_MENU_TUTO],[secondary_head_menu(BSP,bsp,SynDEX,syndex,Boîte à outils Max+,maxplus,Interpréteur Forth,forth,Dynamique d'une voiture,dyna)])
-define([SECONDARY_HEAD_MENU_CV],[secondary_head_menu(Mon C.V.,cv,Mes stages à l'INRIA,stages_travail2)])
+define([SECONDARY_HEAD_MENU_TUTO],[secondary_head_menu(BSP,bsp,SynDEX,syndex,Boîte à outils Max+,maxplus,Interpréteur Forth,forth,Principe moindre action,dyna)])
+define([SECONDARY_HEAD_MENU_CV],[secondary_head_menu(Mon C.V.,cv,Mes stages,stages_travail2)])
 dnl ---------------------------------------------------------------------
 dnl Select the desired menu with this macro
 define([SECONDARY_HEAD_MENU],[define([_SECONDARY_HEAD_MENU_],[$1])])dnl
 define([PRIMARY_HEAD_MENU],[define([_PRIMARY_HEAD_MENU_],[$1])])dnl
 PRIMARY_HEAD_MENU(PRIMARY_HEAD_MENU_1)dnl Ok there is no selection possible for the moment
-dnl #####################################################################
+dnl =====================================================================
 dnl Left menu.
 dnl The left menu is a set of rubriques. A rubrique is a list of items.
 dnl An example of rubrique is the table of contents where items are links
 dnl to sections of the document.
-dnl #####################################################################
+dnl =====================================================================
 dnl ---------------------------------------------------------------------
 define([ITEM_BULLET],[ifelse($1,,[],[<li><a href="$2"><img class="icone7" src="icons/bullet.gif" alt=""/>$1.</a></li>])])
 define([display_all_items_],[ifelse($2,,,[dnl Do not include item self referencing itself
@@ -62,19 +62,19 @@ ifelse($1,,[],[<h1>$1 :</h1>])
 display_all_items_(shift($@))dnl
 </ul>
 ])
-dnl #####################################################################
+dnl =====================================================================
 dnl Left Heading: is a box with links located on the left of the page
-dnl #####################################################################
+dnl =====================================================================
 define([LEFT_BORDER],[divert(DIVERT_LEFT_BORDER)$@])
-dnl #####################################################################
+dnl =====================================================================
 dnl Left heading specific for the page
-dnl #####################################################################
+dnl =====================================================================
 define([HEADING_3D_GAME],[HEADING(TRANS_SAME_PROJ,Speedway,speedway-LANG.html,Ecstasy,ecstasy-LANG.html)])
 define([HEADING_SIMATDYN_LIKE],[HEADING(TRANS_SAME_PROJ,Spreadsheet-based GIS Models,dnl
 [https://scholarworks.umb.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1004&context=management_wp],dnl
 SimCity engine,[http://www.andrewwillmott.com/talks/inside-glassbox],dnl
 KDE Rocs,https://github.com/KDE/rocs)])dnl
-dnl #####################################################################
+dnl =====================================================================
 dnl HTML template: the page is a html table
 dnl -------------------------------------
 dnl            Title
@@ -86,7 +86,7 @@ dnl -------------------------------------
 dnl Left border | Article | Right border
 dnl -------------------------------------
 dnl            Footer
-dnl #####################################################################
+dnl =====================================================================
 define([BEGIN_BODY],[divert(DIVERT_BODY)])
 define([END_BODY],[divert(DIVERT_FOOTER)
 divert
