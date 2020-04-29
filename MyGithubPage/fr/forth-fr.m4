@@ -9,31 +9,27 @@ SECTION(Le langage Forth)
 SUBSECTION(ICON_READ,Références à Forth,ref)
 
 <p>Le but de ce document est de faire découvrir (ou redécouvrir) le
-langage Forth, d'expliquer son fonctionnement interne et de mieux
+langage Forth créé par Charles Moore, d'expliquer son fonctionnement interne et de mieux
 faire comprendre certains mots dits STRONG(de hauts niveaux). Ce
 document montre aussi qu'il existe, non pas un unique langage Forth
 standardisé mais des Forth personnalisés et adaptés à chaque projet.
 Avant de poursuivre la lecture de ce tutoriel, voici une sélection non
 exaustive d'ouvrages et de liens que je recommande de lire. Je suggère
 aux lecteurs qui n'ont jamais connu ce langage de s'initier avec les
-deux premiers liens puis, si possible le livre de W.P. Salman,
+quatre premiers liens puis, si possible le livre de W.P. Salman,
 O. Tisserand, B. Toulout qui est, selon moi, un livre de référence
 expliquant complétement le fonctionnement interne du Forth.</p>
 
-LIST( ICON_FR
-EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,Un
-cours) académique sur le Forth. Ce document est intéressant car il
-parle de la dernière variante de Forth inventé par Moore: colorForth.,
+LIST(
+ICON_FR EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,Un
+cours) [académique sur le Forth. Ce document est intéressant car il
+parle de la dernière variante de Forth inventé par Moore: colorForth.],
 
 ICON_EN EXTLINK(https://www.forth.com/starting-forth/,Starting Forth)
-est le cours d'introduction pédagogique recommandé pour s'initier à ce
-langage.,
+[est le cours d'introduction pédagogique recommandé pour s'initier à ce
+langage.],
 
-ICON_EN EXTLINK(http://lars.nocrew.org/forth2012/core.html,forth2012) le
-glossaire Forth ANSI 2012.,
-
-ICON_EN ICON_FR
-EXTLINK(https://www.amazon.com/FORTH-W-P-SALMAN/dp/0387912568/,Forth)
+ICON_EN ICON_FR EXTLINK(https://www.amazon.com/FORTH-W-P-SALMAN/dp/0387912568/,Forth)
 [W.P. Salman, O. Tisserand, B. Toulout. Edition Macmillan (english
 version) ou Edition Eyrolles (french version) 1983. (ISBN-13:
 978-0387912561, ISBN-10: 0387912568) est un excellent livre décrivant
@@ -43,8 +39,7 @@ Forth. A noter que la version française 1983 contient quelques erreurs
 de typographie dans du code Forth corrigées dans la version anglaise
 (et probablement la version française de 1984).],
 
-ICON_EN
-EXTLINK(http://git.annexia.org/?p=jonesforth.git;a=blob;f=jonesforth.S;h=45e6e854a5d2a4c3f26af264dfce56379d401425;hb=HEAD,JonesForth)
+ICON_EN EXTLINK(http://git.annexia.org/?p=jonesforth.git;a=blob;f=jonesforth.S;h=45e6e854a5d2a4c3f26af264dfce56379d401425;hb=HEAD,JonesForth)
 [Un excellent tutoriel sur l'implémentation d'un interpréteur Forth
 écrit en assembleur i386. Cet document complète le livre de
 W.P. Salman pour la clarté de ses explications et de son
@@ -53,34 +48,36 @@ de ce code pour d'autre assembleur et dont un fonctionnant pour
 Arduino Due, voir lien suivant). L'interpréteur n'est pas complet mais
 les explications y sont plus claires.)],
 
-ICON_EN EXTLINK(https://github.com/ekoeppen/CoreForth, CoreForth) un
+ICON_EN EXTLINK(https://github.com/ekoeppen/CoreForth, CoreForth) [un
   Forth pour Cortex M0 et M3. Fonctionne chez moi avec une carte
-  EXTLINK(https://www.arduino.cc/en/Main/arduinoBoardDue,Arduino Due).,
+  EXTLINK(https://www.arduino.cc/en/Main/arduinoBoardDue,Arduino Due).],
 
-ICON_FR
-EXTLINK(https://www.amazon.fr/Concept-Forth-Langage-syst%C3%A8me-dexploitation/dp/2866990110,
+ICON_EN EXTLINK(https://www.amazon.com/Object-Oriented-Forth-Dick-Pountain/dp/0125635702,Object
+Oriented Forth) [Livre expliquant comment faire évoluer son Forth pour
+le programmer façon objet. Mon deuxième livre coup de coeur concernant Forth.],
+
+ICON_FR EXTLINK(https://www.amazon.fr/Concept-Forth-Langage-syst%C3%A8me-dexploitation/dp/2866990110,
 Le Concept Forth) [de Pascal Courtois (français, ISBN-10:
-2866990110, ISBN-13: 978-2866990114). Explique les mots de base[,]
+2866990110, ISBN-13: 978-2866990114). Explique les mots de base,
 comment fonctionne un interpréteur Forth mais est moins complet que le
-livre Forth de W.P. Salman. On peut trouver des extraits sur Google
+livre Forth de W.P. Salman. On peut trouver des extraits sur le site de developpez.net
 (avec l'aimable autorisation de son auteur). Il donne des programmes
 assembleur sur des interpréteurs Forth mais ils sont difficilement
 compréhensibles et pour des vieux micro et il vaudra mieux se baser le
 lien précédent.],
 
 ICON_FR EXTLINK(http://jpb.forth.free.fr/,Entrer dans le monde du
-Forth) Très belle réalisation de cartes électroniques pour systèmes
-Forth. Les explications sont claires mais peu nombreuses.,
+Forth) [Très belle réalisation de cartes électroniques pour systèmes
+Forth. Les explications sont claires mais peu nombreuses.],
 
 ICON_EN EXTLINK(http://thinking-forth.sourceforge.net/,Thinking Forth)
-Livre pour les développeurs modérés en Forth donnant des conseils sur
+[Livre pour les développeurs modérés en Forth donnant des conseils sur
 comment bien penser son projet en Forth. Ce livre est destiné pour les
-enthousiastes non débutants.,
+enthousiastes non débutants.],
 
-ICON_EN
-EXTLINK(https://www.amazon.com/Object-Oriented-Forth-Dick-Pountain/dp/0125635702,Object
-Oriented Forth) Livre expliquant comment faire évoluer son Forth pour
-le programmer façon objet.)
+ICON_EN EXTLINK(http://lars.nocrew.org/forth2012/core.html,forth2012) le
+glossaire Forth ANSI 2012.
+)
 
 <p>Voici une liste non exhaustive de Forth non payants :</p>
 
@@ -102,10 +99,10 @@ ICON_EN EXTLINK(https://github.com/seanpringle/reforth,reForth) un
   Forth écrit en C avec des modifications intéressantes vis à vis des
   Forth standards. Il n'est plus développé.,
 
-ICON_EN ICON_FR MYLINK(simtadyn, SimForth) [mon interpréteur Forth
-fait maison, portable, écrit en C++ pour les besoins de mon projet
-personnel de cartes géographiques SimTaDyn. Il est inspiré de pForth
-et du livre et créé contenant son mon interpréteur Forth. J'utilise le
+ICON_EN ICON_FR MYGITHUB(SimForth, SimForth) [mon interpréteur Forth
+fait maison écrit en C++ pour les besoins de mon projet
+personnel de cartes géographiques MYLINK(simtadyn, SimTaDyn). Il est inspiré de pForth
+et du livre et créé contenant son mon interpréteur Forth. J'utilise l'héritage du
 C++ pour avoir à la fois un interpréteur Forth classique (compilable
 séparément du projet principal), tout en ayant un interpréteur
 spécialisé pour mes cartes géographiques.])
@@ -129,20 +126,23 @@ embarqués est devenu moins critique, ce langage est devenu beaucoup
 moins à la mode là où le C demeure toujours en maître.</p>
 
 <p>Comme nous allons le détailler tout le long de ce document, faire
-son propre interpréteur Forth est très simple, chacun pouvant posséder
+son propre interpréteur Forth est relativement aisé, chacun pouvant implémenter
 le sien mais pas forcément compatible avec celui d'un autre. Cela fut
-un point noir de ce langage qui malgré plusieurs tentatives de
+un point noir de ce langage, qui malgré plusieurs tentatives de
 standards (78, 79, 83, 2012 ...) pour normaliser les mots les plus
-courants ne furent pas forcément bénéfique au langage. Pour
-information, Charles H. Moore est toujours actif. Il a quitté le
+courants, ne furent pas forcément bénéfique au langage: Charles H. Moore
+est toujours actif mais il a quitté le
 consortium, jugeant que la normalisation nuisait à l'innovation de
 nouveaux Forth. Il a ainsi pu continuer à simplifier les structures
 Forth comme expliqué dans
 EXTLINK(https://www.rfc1149.net/download/documents/ifi/forth.pdf,le
 lien suivant[,] section Structures simplifiées). Avec
 EXTLINK(https://blogs.msdn.microsoft.com/ashleyf/2013/11/02/the-beautiful-simplicity-of-colorforth/,colorForth)
-Moore a ajouté un rôle aux mots en leur ajoutant une couleur. Il a
-également fondé GreenArrays Inc. qui produit des puces
+Moore a ajouté un rôle aux mots en leur ajoutant une
+EXTLINK(http://www.profibing.de/colorforth/display.html,couleur).
+Pour plus d'information confère ce
+EXTLINK(http://www.figuk.plus.com/articles/chuck.pdf,document).
+Moore a également fondé GreenArrays Inc. qui produit des puces
 EXTLINK(http://bitlog.it/programming-languages/getting-started-with-the-ga144-and-arrayforth/,GA144)
 contenant un réseau communicant de sous-processeurs Forth dont le
 EXTLINK(https://www.google.com/patents/US7752422,brevet) explique
@@ -179,7 +179,7 @@ SUBSECTION(ICON_EYES,Coloration syntaxique,color)
    décorative, contrairement à ColorForth qui ajoute une information
    aux mots Forth pour le compilateur:</p>
 
-TABLE(3, Couleur, Quand, But,
+TABLE(3, Couleur:, Mode de l'interpréteur:, Commentaire:,
 STRONG(En gras), ignoré, Les commentaires,
 GREY(En gris), compilation/exécution, les mots manipulant les nombres dans la pile des données,
 RED(En rouge), compilation, la définition d'un nouveau mot,
@@ -201,31 +201,29 @@ conséquent, cette section empruntera de grossiers racourcis.</p>
 <p>Pour rappel et faire très simple, en théorie des langages, un
 ITALIC(compilateur) est un outil qui transforme un langage
 informatique en un autre langage. Par exemple du langage C au langage
-machine directement éxécutable. Pour cela un compilateur utilise
+machine directement exécutable. Pour cela un compilateur utilise
 généralement deux outils:</p>
 
 LIST(Un ITALIC(lexer) est un outil d'analyse lexicale qui convertit un
 texte (entrée) en une liste d'unité lexicale (sortie) appelée
 ITALIC(symboles) (tokens en anglais).,
 
-Cette liste est ensuite consommée par un second outil appelé
-ITALIC(parser) qui retourne un
-EXTLINK(https://en.wikipedia.org/wiki/Abstract_syntax_tree,arbre de
-syntaxe) abstraite (AST en anglais) où les noeuds de cet arbre sont
-les opérateurs et les feuilles les opérandes et que l'on visite avec
-un parcour
-EXTLINK(https://fr.wikipedia.org/wiki/Parcours_d%27arbre,main-gauche). Le
-terme ITALIC(abstrait) vient du fait qu'un
+Cette liste est ensuite consommée par un second outil appelé ITALIC(parser) qui
+retourne un EXTLINK(https://en.wikipedia.org/wiki/Abstract_syntax_tree,arbre de
+syntaxe) abstraite (AST en anglais) où les noeuds de cet arbre sont les
+opérateurs et les feuilles les opérandes et que l'on visite avec un parcours
+EXTLINK(https://fr.wikipedia.org/wiki/Parcours_d%27arbre,main-gauche). Le terme
+ITALIC(abstrait) vient du fait qu'un
 EXTLINK(https://en.wikipedia.org/wiki/Parse_tree,Parse tree) est une
-répresentation concrète et complète du texte alors que l'AST ne garde
-que certains de ces éléménts.)
+représentation concrète et complète du texte alors que l'AST ne garde que
+certains de ces éléments.)
 
 <p>Une fois l'AST construit, cette structure est plus simple pour le
-compilateur de la travailler. Un compilo C aurait analyser un certain
-nombre fois une analyse de l'AST pour en créer des AST contenant des
-pseudo-instructions de plus en plus proche de l'assembleur de la
+compilateur de la travailler. Un compilateur C aurait analyser un certain
+nombre fois une analyse de l'AST pour créer des AST intermédiaires contenant des
+pseudo-instructions de plus en plus proche des instructions assembleur de la
 machine cible. Il aurait également généré un graphe colorié afin de
-connaître le nombre minimal de registres nécessaires pour les
+connaître le nombre minimal de registres nécessaires pour stocker les
 variables locales (par exemple dans notre cas, un registre pour
 stocker le résultat 14), etc.</p>
 
@@ -297,24 +295,32 @@ d'approchant à :</p>
 CODE[](display (+ (* 3 4) 2))
 END_CODE
 
+<p>En Forth, qui est un langage utilisant la notation polonaise inversée,
+on aurait écrit :</p>
+CODE[]3 4 * 2 + display
+END_CODE
+
+<p>L'interpréteur Forth se contente simplement d'extraire les mots
+séparés par des espaces.</p>
+
 SUBSECTION(ICON_EYES,Forth un langage sans syntaxe,sansyn)
 
 <p>Forth est à la fois un interpréteur et un compilateur. Forth ne
 compile pas le code en langage machine (comme pour le langage C) mais
 du byte-code dans une machine virtuelle (comme pour Java).</p>
 
-<p>La grammaire de Forth, contrairement aux langages tels que le C ou
+<p>Forth, contrairement aux langages tels que le C ou
 Python, n'a pas de grammaire ambiguë, ne nécessite pas de rétro-action
 lexicale, etc. Un script Forth est une simple suite de
 ITALIC(symboles) séparés par des espaces. Il n'y a donc aucune
 syntaxe. Par conséquent un compilateur Forth est un simple lexer sans
-son parser. Quand il va lire un script, il n'a besoin que d'extraire
-et de reconnaitre le symbole courant (qui doit être soit un symbole
+son parser. Quand Forth va lire un script, il n'a besoin que d'extraire
+et de reconnaître le symbole courant (qui doit être soit un symbole
 qui lui est ITALIC("connu"), soit un nombre) et parfois le symbole
 suivant (quand celui-ci n'est pas encore connu, comme par exemple lors
 de la définition d'un nouveau symbole/définition Forth). Dans une
-ILINK(section,dico) de ce document, on expliquera ce que le verbe
-connaître signifie concrêtement. Nous verrons également que ce sont
+ILINK(dico,section) de ce document, on expliquera ce que le verbe
+"connaître" signifie concrètement. Nous verrons également que ce sont
 les symboles eux mêmes qui agissent directement sur le comportement du
 compilateur.</p>
 
@@ -323,8 +329,8 @@ compilateur.</p>
 naturel humain. Egalement par convention, un mot Forth est formé de
 n'importe quelle suite de caractères ASCII (il n'y a réellement aucune
 restriction contrairement à des langages tels que C) dont,
-historiquement, la taille maximale est 31 caractères ASCII (mais cette
-limitation a disparue sur certains Forth tels que gForth).</p>
+historiquement, la taille maximale est 32 caractères ASCII (mais cette
+limitation a disparue sur les Forth modernes tels que gForth).</p>
 
 <p>Cette absence de syntaxe s'explique facilement: Forth utilise la
 notation polonaise inversée (Reverse Polish notation) à savoir que les
@@ -346,33 +352,90 @@ END_CODE
 <p>équivaut à l'expression arithmétique 2 + (3 * 4).</p>
 
 <p>Si l'on désire afficher à l'écran le résultat de l'opération on
-  utilisera le mot Forth STRONG(.)</p>
-CODE[]BLUE(2 3 4) GREY(* + .)
+  utilisera le mot Forth STRONG(display)</p>
+CODE[]BLUE(2 3 4) GREY(* + display)
 END_CODE
 
-<p>Le travail de l'interpréteur Forth est assez trivial: il se
-contente d'extraire les symboles à la volée (simplement de gauche à
-droite), il empile les nombres qu'il rencontre et exécute les
-opérandes (les mots Forth) consommant une certaine quantité de données
-dans cette pile puis, si résultat il y a, empilera le résultat. La
-section suivante expliquera mieux ce processus.</p>
+<p>Note: en Forth, le mot display n'existe pas, son nom exact est GREY(.) et il
+affichera 14.</p>
 
-<p>Si l'on désire créer un nouveau mot Forth, on utilisera le mot
-Forth RED(:) suivi du nom du nouveau mot Forth puis d'une suite de
-mots Forths connus ou de nombres et enfin du mot ORANGE(;) qui termine la
-définition. Les mots : et ; sont des mots primitifs du langage (builtin).
-L'interpréteur Forth passe alors en mode compilation. Par exemple:</p>
+<p>Le travail de l'interpréteur Forth est assez trivial: il se contente
+d'extraire les symboles à la volée (simplement de gauche à droite), il empile
+les nombres qu'il rencontre et exécute les opérandes (les mots Forth) consommant
+une certaine quantité de données dans cette pile puis, si résultat il y a,
+empilera le résultat. La section suivante expliquera mieux ce processus.</p>
 
-CODE[]RED(: MON-CALCUL) BLUE(2 3 4) GREY(* +) ORANGE(;) END_CODE
+<p>STRONG(Mode compilation et mode interprétation:) Si l'on désire créer un
+nouveau mot Forth, on utilisera le mot Forth RED(:) suivi du nom du nouveau mot
+Forth à définir, puis d'une suite de mots Forths connus ou de nombres et
+finalement du mot ORANGE(;) qui termine la définition. Les mots RED(:) et
+ORANGE(;) sont des mots primitifs du langage (builtin).  Par exemple:</p>
 
-<p>Il est clair que MON-CALCUL est un mot Forth inconnu et que si
-l'interpréteur tente de l'exécuter il échouera. C'est l'exécution du
-mot STRONG(:) qui va lui indiquer que le mot suivant (à savoir
-MON-CALCUL) ne doit pas être interprété mais doit être utilisé. Nous
-reviendrons plus tard sur le fonctionnement exact avec les mots Forth
-de hauts niveaux. Le mot MON-CALCUL a été compilé en byte-code et
-désormais il est maintenant un mot connu. Nous y reviendrons dans une
-section future.</p>
+CODE[]RED(: MON-CALCUL)    BLUE(2 3 4) GREY(* +) ORANGE(;) END_CODE
+
+<p>est l'equivalent du code C:</p>
+CODE[]int mon_calcul() { return 2 + 3 * 4; }
+PUSH(mon_calcul());
+END_CODE
+
+<p>Chaque fois que l'on "donnera" STRONG(MON-CALCUL) à l'interpréteur Forth,
+celui ci calculera et retournera le nombre 14. Il est clair que RED(MON-CALCUL)
+est devenu un mot Forth connu mais revenons en arrière avec l'extrait de code
+STRONG(: MON-CALCUL) car on peut se poser la question: est ce que l'interpréteur
+échouera quand il tentera d'exécuter le mot STRONG(MON-CALCUL) qui lui est
+inconnu ?  C'est exact mais c'est l'exécution du mot RED(:) qui va commuter
+l'interpréteur en mode compilation et lui indiquer que le mot suivant (à savoir
+MON-CALCUL) doit être ajouté dans l'index de recherche des mots connus. En mode
+compilation tous les mots connus sont compilés en byte code. Un mot inconnu est
+considéré purement et simplement comme un erreur. On pourrait croire que le mot
+ORANGE(;) sera lui aussi compilé mais ce n'est pas le cas. En effet ce mot est
+un mot de haut niveau qui, quand il est exécuté, et ce même quand le compilateur
+est en mode compilation, fait repasser l'interpréteur en mode
+interprétation. Nous analyserons plus en détail ce fonctionnement exact dans la
+section traitant des mots Forth de hauts niveaux.
+
+Le mot RED(MON-CALCUL) a été compilé en byte-code et désormais il est maintenant
+un mot connu de l'interpréteur. Nous y reviendrons dans une section future.</p>
+
+<p>STRONG(Gestion des commentaires:) Il existe plusieurs format de commentaires en Forth.
+Le mot STRONG(\) ignore la ligne complète. Par exemple:</p>
+CODE[]RED(: MON-CALCUL) \ Fait un calcul
+   BLUE(2 3 4) GREY(* +) ORANGE(;) END_CODE
+
+<p>ignorera STRONG(Fait un calcul). Attention STRONG(\) est un mort Forth: il
+exécute du code: celui d'ignorer tous les caractères jusqu'à rencontrer le
+retour chariot.</p> En conséquence, il faudra placer au moins un espace pour
+que l'interpréteur puisse le séparer des autres tokens. Par exemple:</p>
+CODE[]RED(: MON-CALCUL) \Fait un calcul
+BLUE(2 3 4) GREY(* +) ORANGE(;) END_CODE
+<p>Produira une erreur indiquant que le mot STRONG(\Fait) est inconnu de
+l'interpréteur. L'autre type de commentaire sont les parenthèses. Par exemple:</p>
+CODE[]RED(: MON-CALCUL) ( Fait un calcul)
+   BLUE(2 3 4) GREY(* +) ORANGE(;) END_CODE
+
+<p>Tout comme le mot STRONG(\), le mot ( est un mot Forth. il lui faut un espace pour être reconnu.
+Ce mot ignore tous les charactères jusqu'à rencontrer le premier caractère ) qui lui, pour le coup,
+n'est pas un mot Forth et n'a donc pas besoin d'être espacé.</p>
+
+<p>Compliqué ? Malgré le peu de vocabulaire Forth présenté jusqu'à présent dans ce document.
+Vous changerez d'avis quand vous constaterez la facilité de son implémentation qui est la suivante :</p>
+CODE[]RED(: &lpar;)   BLUE(41) WORD GREY(DROP) ORANGE(; IMMEDIATE) END_CODE
+
+<p> Explications: 41 est le code ASCII de ) qui sera placé sur le sommet de la pile de données.
+Le mot WORD le consommera et ignorera tous les caractères du flux de caractères jusqu'à rencontrer
+le bon code ASCII. WORD retourne la position du flux, information inutile et donc éliminée par le mot DROP.
+Finalement le mot IMMEDIAT (qui sera expliqué plus longuement dans une section suivante) rend ce mot exécutable
+lors de la compilation d'un mot. Par exemple dans l'exemple précédant avec MON-CALCUL il aurait été gênant de
+compiler le commentaire en byte code.
+
+<p>Le lecteur attentif aura remarqué que les commentaires Forth, avec cette définition issue du standard, ne permet pas
+de nicher des sous commentaires. Pour la définition du mot STRONG(\) on remplacera le code ASCII de ) par le code ASCII
+du retour chariot.</p>
+
+<p>En conclusion pour cette section, nous venons de voir comment avec un
+langague sans syntaxe nous avons facilement pu implémenté un début de
+syntaxe. Nous verrons plus tard que les mots de liaisons tels que le IF THEN
+ELSE, boucles seront tout aussi facilement implémentées.</p>
 
 SUBSECTION(ICON_GEAR,Forth un langage à piles,pile)
 
@@ -384,8 +447,8 @@ SUBSECTION(ICON_GEAR,Forth un langage à piles,pile)
    (dernière donnée) déposée qu'on ira prélever en premier. Une pile
    est également nommée LIFO pour Last In First Out. Nous allons voir
    ici que Forth utilise deux piles: -- une pile pour les données
-   (nommée data stack ou bien S); -- une pile pour l'exécution des
-   mots (nommée return stack ou bien R).</p>
+   (nommée STRONG(Data Stack) ou bien STRONG(Parameter Stack) ou bien S);
+   -- une pile pour l'exécution des mots (nommée STRONG(Return Stack) ou bien R).</p>
 
 <p>Des langages, tels que le C, cachent délibérément au développeur
    l'utilisation d'une pile de contexte pour sauvegarder des
@@ -393,8 +456,8 @@ SUBSECTION(ICON_GEAR,Forth un langage à piles,pile)
    fonction, le compilateur va empiler:</p>
 
 LIST(les paramètres passés à la fonction[,], les variables locales de
-la fonction[,], et bien d'autres encore comme le code de retour de la
-fonction.)
+la fonction[,], et bien d'autres information comme le code de retour de la
+fonction, le pointeur d'interprétation ...)
 
 <p>Ceci peut entraîner des pénalités en temps d'exécution du programme
 (passage de trop de paramètres, passage des paramètres par copie au
@@ -402,13 +465,14 @@ lieu de leur adresse), voir des crashs par débordement de la pile
 d'appels (stack overflow) ce qui peut arriver, par exemple, dans les
 cas suivants: LIST(soit en passant par copie des données trop
 grosses[,],soit en utilisant la récursivité sur des langages mal
-adaptés à la récursion terminale tels que le C.)</p>
+adaptés à la récursion terminale tels que le C ou Forth. Pour information OCaml est
+un langage maîtrisant nativement la récursion ainsi que ColorForth.)</p>
 
-<p>Forth utilise deux types de piles: LIST([une accessible au
-développeur pour stocker les données qui sont, en fait, les paramètres
-des mots Forth;],[une seconde utilisée par l'interpréteur pour
-sauvegarder l'ordre des appels des mots. Nous verrons qu'elle est en
-fait partiellement accéssible au développeur.])
+<p>Forth utilise deux types de piles: LIST([une accessible au développeur pour
+stocker les données qui sont, en fait, les paramètres des mots Forth
+(équivalents des fonctions en C);],[une seconde utilisée par l'interpréteur pour
+sauvegarder l'ordre des appels des mots. Nous verrons qu'elle est en fait
+partiellement accessible au développeur.])
 
 <p>STRONG(Pile de données:) En Forth, avec la notation polonaise
 inversée, les opérandes sont directement stockés dans une pile de
@@ -421,9 +485,9 @@ faiblesse du langage: le programmeur Forth doit organiser l'ordre des
 DUP, SWAP, OVER) ce qui ajoute du bruit au code source de
 l'algorithme.  Certains Forth non-standards reprennent cette idée de
 variables locales nommées (comme le langage C): une partie de la pile
-est transférée dans ces variables pour une utilisation directe.</p>
+est transférée vers ces variables pour une utilisation directe.</p>
 
-<p>Supposons les piles S et R initialement vides puis exécutons le
+<p>Supposons la pile S initialement vide puis exécutons le
 code suivant:</p> CODE[]BLUE(2) GREY(DUP + .)  END_CODE
 
 LIST(L'interpréteur va placer l'opérande 2 dans la pile (qui aura donc
@@ -442,23 +506,19 @@ dans son état d'origine (vide).)
 
 <p>Il est de la responsabilité du développeur de vérifier qu'il y ait
 toujours le bon nombre d'éléments dans la pile. Si un mot veut
-consommer des éléments non présents dans la pile, l'interpréteur va
+consommer des éléments non présents dans la pile, certains interpréteurs vont
 interrompre tout le programme et le signaler à l'utilisateur par un
-message d'erreur.</p>
+message d'erreur de type "stack underflow", d'autres interpréteurs ne géreront
+même l'erreur (pour des soucis de rapidité).</p>
 
-<p>STRONG(Notation des piles:) TODO
-Dés que le l'analyseur exécutera le mot ( il ignorera tous les mots
-jusqu'à trouver le mot ) Notons qu'il existe un autre type de commentaire Forth
-le mot \ ignore entièrement la ligne courante.</p>
-CODE[] RED(: [par]) 41 WORD DROP ORANGE(; immediate)
-END_CODE
-
-<p>STRONG(Pile de retour:) cette pile est utilisée pour mémoriser
-l'ordre des appels des mots Forth appelant d'autres mots Forth. Pour
-bien comprendre la raison de son existence, rappellons-nous des
-algorithmes de parcours d'arbre. Sur la figure suivante,
-nous souhaitons simuler un repas en parcourant les
-noeuds de cet arbre avec un parcours préfixe main gauche
+<p>STRONG(Pile de retour:) cette pile est utilisée pour mémoriser l'ordre des
+appels des mots Forth appelant d'autres mots Forth (secondary words) tels que
+MON-CALCUL (pour rappel le mot DUP est une primitive du language à
+savoir appelant du code machine. Cela sera plus longuement détaillé dans une
+section suivante). Pour bien comprendre la raison de son existence, rappelons
+nous des algorithmes de parcours d'arbre. Sur la figure suivante, nous
+souhaitons simuler un repas en parcourant les noeuds de cet arbre avec un
+parcours préfixe main gauche
 EXTLINK(https://en.wikipedia.org/wiki/Tree_traversal,main-gauche).</p>
 
 CAPTION_PICTURE(tuto/forth/poulet-frite-arbre.png,Votre repas pour ce midi.)
@@ -485,7 +545,7 @@ END_CODE
 
 <p>Cet algorithme utilise implicitement une pile pour sauvegarder les
 noeuds parcourus. Le compilateur va gérer automatiquement la pile d'appel
-(Rappelez vous quand je disais que le langage C cachait au
+pour nous (Rappelez vous quand je disais que le langage C cachait au
 développeur l'utilisation de cette pile). Maintenant, voyons comment est
 gérée cette pile, en utilisant un algorithme itératif:</p>
 CODE[]explorer(arbre A):
@@ -499,12 +559,12 @@ CODE[]explorer(arbre A):
    fin tant que
 END_CODE
 
-<p>Quel est le lien avec Forth ? L'interpréteur Forth dès qu'il lit un
-nouveau symbole (mot) sur son entrée va l'interpréter de façon
-similaire à notre algorithme d'exploration d'arbre à la différence près
-qu'il ne se contentera pas d'afficher le noeud mais exécutera les
-instructions assembleur du mot. La pile utilisée est la pile de retour R
-que l'on a introduit précédemment.</p>
+<p>Quel est le lien avec Forth ? L'interpréteur Forth dès qu'il lit un nouveau
+symbole sur son entrée (par exemple MON-CALCUL) va l'interpréter de façon
+similaire à notre algorithme d'exploration d'arbre à la différence près qu'il ne
+se contentera pas d'afficher le noeud mais exécutera les instructions machine
+des mots Forth primitives (tels que DUP). La pile utilisée dans le pseudo-code
+est cette fameuse pile de retour R que l'on a introduit précédemment.</p>
 
 <p>On peut se poser une autre
 question: quel est le lien entre un mot Forth est un arbre ?  Un mot
@@ -522,51 +582,83 @@ entre eux.</p>
 
 CAPTION_PICTURE(tuto/forth/poulet-frite-forth.png,Votre repas en Forth.)
 
-<p>Cela sera plus clair pour le lecteur lorsque nous aborderons le chapitre sur le
-dictionnaire de l'interpréteur car nous n'avons pas encore abordé comment les mots Forth sont
-représentés en mémoire (chapitre suivant), pour le moment le lecteur doit accepter
-le fait que les fils gauches sont une addresse vers l'emplacement mémoire
-d'un autre mot Forth et que les fils droits n'existent pas, ils sont
-implicites car les noeuds sont placés consécutivement dans la mémoire
-(par exemple ENTREE, DEJEUNER et DESSERT sont consécutifs en mémoire).</p>
+<p>Attention, en interne, une structure classique d'arbre (avec noeud et deux
+pointeurs) n'est pas utilisée. Les pointeurs ne sont rien d'autre que le
+byte-code (identifiant des mots compilés). Cela sera plus clair pour le lecteur
+lorsque nous aborderons le chapitre sur le dictionnaire car nous n'avons pas
+encore abordé comment les mots Forth sont représentés en mémoire (section
+suivante). Pour le moment le lecteur doit accepter le fait que les fils gauches
+sont une adresse vers l'emplacement mémoire d'un autre mot Forth et que les fils
+droits n'existent pas, ils sont implicites car les noeuds sont placés
+consécutivement dans la mémoire (par exemple le byte code des mots ENTREE,
+DEJEUNER et DESSERT sont consécutifs en mémoire dans la définition du mot
+REPAS).</p>
 
-<p>Maintentant, avec cet arbre binaire, si l'on éxécute uniquement les noeuds qui n'ont pas de fils gauche, on obtiendra le
-résultat attendu: BOLD([ENTREE, POULET, FRITES, DESERT]). On comprendra mieux par la suite</p>
+<p>Maintenant, avec cet arbre binaire, si l'on exécute uniquement les noeuds qui
+n'ont pas de fils gauche, on obtiendra le résultat attendu: BOLD([ENTREE,
+POULET, FRITES, DESERT]). On comprendra mieux par la suite. Comment est
+implémenté les piles ainsi que le parcours d'arbre des mots en Forth ? Deux
+réponses possible selon selon le langage qui implémente l'interpréteur
+Forth:</p>
 
-<p>Comment est implémenté les piles ainsi que le parcours d'arbres des mots
-en Forth ? Deux réponses dépendants du langage qui implémente l'interpréteur Forth:</p>
-
-LIST(STRONG(Assembleur:) [Forth étant un langage pour les
-micro-contrôleur, les mots primitifs du langage (à savoir les mots
-constituants le coeur du système) ITALIC(pointent) sur du code
-assembleur, une des piles utilise le registre de la pile interne aux
-micro-contrôleur, l'autre pile doit être gérée explicitement. noeud
-est le registre PC et il faut un registre d'interprétation IP qui se
-déplace automatiquement et exécute les instructions assembleurs des
-mots. L'existence des fils est géré par le mot Forth spécial RETURN
-qui doit être ITALIC(collé) aux mots primitifs. Je conseille le
-tutoriel de
+LIST( STRONG(Assembleur:) [Forth étant un langage pour les micro-contrôleur, les
+mots primitifs du langage (à savoir les mots constituants le coeur du système)
+ITALIC(pointent) sur du code assembleur, une des piles utilise le registre de la
+pile interne aux micro-contrôleur, l'autre pile doit être gérée
+explicitement. Le noeud de notre arbre est le registre PC et il faut un registre
+d'interprétation IP qui se déplace automatiquement et exécute les instructions
+assembleurs des mots. L'existence des fils est géré par le mot Forth spécial
+RETURN qui doit être ITALIC(collé) aux mots primitifs. Je conseille vivement de
+lire le tutoriel de
 EXTLINK(http://git.annexia.org/?p=jonesforth.git;a=blob;f=jonesforth.S;h=45e6e854a5d2a4c3f26af264dfce56379d401425;hb=HEAD,JonesForth)
-pour plus de renseignements.], [Dans un langage de haut niveau tel que
-le C: pour un soucis de portabilité les piles seront émulées par un
-tableau et les registres IP et PC seront émulés par un switch case.])
+pour plus de renseignements. Il est très complet à ce sujet. j'ajouterai une
+simple remarque: on voit que nos micro-controleurs modernes avec des
+architectures RISC (ou équivalentes) sont des monstres en comparaison à un
+micro-controleur dédié aux instructions Forth qui a besoin de 2 piles et de 2
+registres.],
 
-<p>STRONG(Note:) les débutants peuvent ignorer cette remarque dans
-un premier temps, le pile de retourn est en fait partiellement accessible au
-développeur mais cela peut présenter un risque de crash du programme. En effet
-cette pile est utilisée en même temps à la fois par l'interpréteur et le
-développeur. Il existe des mots Forth permettant de déplacer temporairement des
-nombres de la pile de données sur la pile de retour [>R] et [R>] mais il faudra
-faire attention à laisser la définition propre sous peine de faire crasher l'interpréteur (interprétation, lors
-du parcours d'arbre, du nombre transféré de la pile de données à la
-pile de retour). Pour cela il faut que le nombre mot [>R] et [R>] soient balancés.
+[Langage de haut niveau:) tel que le C, pour un soucis de portabilité les piles
+seront émulées par un tableau statique et les registres IP et PC seront émulés
+par un switch case sur les primitives et une variable.])
+
+<p>STRONG(Note:) les débutants peuvent ignorer ce paragraphe dans un premier
+temps! La pile de retour n'est pas une pile privée. Elle est en fait
+partiellement accessible au développeur mais cela peut présenter un énorme
+risque de crash du programme. En effet cette pile de retour peut être aussi
+utilisée comme pile de stockage temporaire de la pile de données avec des mots
+[>R] et [R>]. Cette pile est utilisé en même temps à la fois par l'interpréteur
+et le développeur. C'est le cas par exemple pour les mots implémentants les
+boucless : les compteurs sont parfois déplacés sur cette pile. Il faudra faire
+attention à laisser cette pile propre (pour cela il faut que le nombre mot [>R]
+et [R>] soient balancés) sous peine de faire crasher l'interpréteur en exécutant
+une valeur de la pile de données en le prenant pour un byte-code à
+exécuter. Pour rappel, Forth a été conçu dans les années 70 où le moindre octet
+était peu nombreux et couteux et donc le moindre hack pour économiser de la
+mémoire était priviligié à la sécurité. Maintenant avec la puissance énorme des
+processeurs, il est plus simple de créer une deuxième pile de données.
 
 <p>STRONG(Piles auxiliaires:) Pour éviter les crashs avec les mots [>R] et [R>]
-certains Forth les ont interdit et rend privée l'accès à la pile de retour. En contre-partie,
-il est proposé à l'utilisateur une seconde pile de stockage des données. De plus les Forth initiaux
-ne manipulent pas de nombres floattants: ils sont émulés et utilisent la pile de données. C'est
-pour cela que certains Forth ont une pile qui leur est spécialement dédiée. Par conséquent un Forth
-non-standard peut avoir jusqu'à quatre piles.</p>
+certains Forth les ont interdit et rend privée l'accès à la pile de retour. En
+contre-partie, il est proposé à l'utilisateur une seconde pile de stockage des
+données. De plus, les Forth initiaux ne manipulent pas de nombres floattants
+nativements (la pile de données stocke uniquement des entiers 16 bits). Ces pile
+sont émulées en Forth et résident dans le dictionaire.</p>
+
+<p>STRONG(Notation des piles:) Nous avons vu dans la section précédente que dés
+que le l'interpréteur exécutera le mot ( il ignorera tous les mots jusqu'à
+trouver le mot ). Ce type de commentaire est utilisé pour commenter les
+paramètres d'entrée et de sorties du mot et donc les piles. Il existe de
+nombreux documents sur internet qui en traite. Mais dans ce document nous allons
+beaucoup simplifié. Par exemple pour le mot NIP qui supprime le deuxième
+élements au sommet de la pile: </p>
+CODE[]: NIP ( a b -- b )   SWAP DROP ; END_CODE
+
+<p>Le commentaire indique que ce mot consomme deux nombres dans la pile
+d'entrée: a et b (où a est le premier élement et b le second) et en produit un
+seul (b, le second paramètre) est équivalent au code suivant:
+CODE[]int nip(int a, int b) { return b; }
+PUSH(nip(POP(), POP());
+END_CODE
 
 SUBSECTION(ICON_GEAR,Dictionnaire Forth: une machine virtuelle,dico)
 
@@ -589,122 +681,145 @@ du nombre stocké dans la pile. Par exemple, le code suivant, consommera le nombr
 CODE[]BLUE(5) GREEN(SQUARE) GREY(.)
 END_CODE
 
-<p>Nous avons également vu que l'exécution de mots
-Forth se rapproche d'un parcours d'arbre. Cette section fait enfin
-ce lien, en expliquant comment les mots Forth sont stockés en mémoire
-et se réfèrent entre eux.</p>
+<p>Nous avons également vu que l'exécution de mots Forth se rapproche d'un
+parcours d'arbre. Cette section fait enfin ce lien, en expliquant comment les
+mots Forth sont stockés en mémoire et se réfèrent entre eux.</p>
 
-<p>Les mots Forth et leur définition sont stockés dans une structure
-de donnée appelée par convention le ITALIC(dictionnaire) (dictonary en
-anglais). un mot Forth stocké dans ce dictionnaire sera reconnu par l'interpréteur.
-La norme Forth laisse libre son implémentation. Regardons la
-structure originelle du Forth pensée par son auteur.</p>
+<p>Il n'y a pas une unique structure de dictionaire possible.  La norme Forth
+laisse libre son implémentation. Pour ce document nous nous baserons sur la
+structure originelle (Forth 78): les mots Forth (entrées) et leur définition
+sont stockés dans une structure de donnée appelée par convention le
+ITALIC(dictionnaire) (dictonary en anglais). Un mot Forth stocké dans ce
+dictionnaire sera reconnu par l'interpréteur et sa défiontion pourra être
+exécutée.</p>
 
-<p>Le dictionnaire est un segment mémoire et peut être vu comme le
-ruban infini d'Alan Turing. Il est divisé en cases mémoire consécutives et par
-convention on les nomme cellule (cell en anglais). Leur taille en
-octets dépend de l'architecture de la cible. Nous nous baserons pour
-ce document sur une architecture 16-bits, donc un mot sera codé sur deux octets.
-Par conséquent la taille d'un dictionnaire est 2<sup>16</sup>-1 soit 64 Ko (ce qui
-est suffisant pour stocker un programme Forth). Pour rappel Forth étant né dans les
-années 70, il est trés adapté pour ces tailles de mots et est
-moins bien adapté pour des architectures 32 ou 64-bits, à cause des
-alignements des adresses mémoires et du padding implicite.</p>
+<p>Le dictionnaire est un segment mémoire et peut être vu comme le ruban infini
+d'Alan Turing. Il est divisé en cases mémoire consécutives et par convention on
+les nomme cellule (cell en anglais). Une cellule stocke un token (byte
+code). Leur taille en octets dépend de l'architecture de la cible. Nous nous
+baserons pour ce document sur une architecture 16-bits, donc un mot sera codé
+sur deux octets.  Par conséquent la taille d'un dictionnaire est
+2<sup>16</sup>-1 soit 64 Ko (ce qui est suffisant pour stocker un programme
+Forth). Pour rappel Forth étant né dans les années 70, il est très adapté aux
+micro-controlleurs 8 ou 16-bits et est moins bien adapté pour des architectures
+32 ou 64-bits, à cause des alignements des adresses mémoires et du padding
+implicite. Pour ne pas compléxifier cette lecture nous ne attarderons pas au
+problème d'alignement.</p>
 
 <p>Voici la structure mémoire d'un mot Forth:</p>
 CODE[]                  &lt;----------            Entête        ---------->
- - - - -----------+---------------+------+------------------------+----------- - - - + - - - - - - -
-Fin mot précédent | BLUE([[Taille, flags]]) | RED(Nom)  | Pointeur mot précédent | GREEN(Déf)GREY(inition)       | Début mot suivant
- - - - -----------+---------------+------+------------------------+----------- - - - + - - - - - - -
+ - - - -----------+---------------+------+------------------------+-------+---- - - - - - - - - - - -
+Fin mot précédent | BLUE([[Taille, flags]]) | RED(Nom)  | GREY(Pointeur mot précédent) | GREEN(Token) | GREEN(Définition)       | Début mot suivant
+ - - - -----------+---------------+------+------------------------+-------+---- - - - - - - - - - - -
 
-                  ^                      ^                        ^     ^
-                  |                      |                        |     |
-                 NFA                    LFA                      CFA   PFA
+                  ^                      ^                        ^       ^
+                  |                      |                        |       |
+                 NFA                    LFA                      CFA     PFA
 END_CODE
 
-LIST(Les informations STRONG([[Taille, Flags]]) sont codées sur 1
+LIST(Les informations BLUE([[Taille[,] Flags]]) sont codées sur 1
 seul octet.
 
-LIST(STRONG(Taille:) code sur les 5 bits de poids faible[[,]] le nombre de
+LIST(BLUE(Taille:) code sur les 5 bits de poids faible[[,]] le nombre de
 caractères ASCII du nom du mot Forth;,
-STRONG(Flags:) code sur les 3 bits de poids fort les informations
+BLUE(Flags:) code sur les 3 bits de poids fort les informations
 suivantes:
 
-LIST(STRONG(Smudge bit :) indique si le mot doit être ignoré lors
+LIST(GREY(Smudge bit :) indique si le mot doit être ignoré lors
 d'une recherche dans le dictionnaire. Ce drapeau est placé dans deux
-cas : -- soit l'utilisateur a décidé de supprimer le mot (avec le mot FORGET);
+cas : -- soit l'utilisateur a décidé de supprimer le mot (avec le mot HIDE);
 -- soit d'une définition avortée (l'utilisateur a fait une erreur comme une
 typo sur un mot de la définition qui n'a donc pas aboutie).;,
 
-ORANGE(immediat bit :) si le mot doit être immédiatement interprété
-(exécuté) dés que l'interpréteur le lit, et ce, même si l'intérpréteur
-est entrain de compiler un nouveau mot. Le seul mot Forth immédiat que l'on
-connaît à ce niveau du document est le mot ORANGE(;) qui termine la définition
-d'un mot (et accéssoirement finalise le Smudge bit). S'il n'avait pas été
-immédiat l'interpréteur l'aurait ajouté dans la définition du mot en cours.
-Il faut pouvoir indiquer au compilateur quand s'arrêter.;,
+ORANGE(immediat bit :) si le mot doit être immédiatement interprété (exécuté)
+dés que l'interpréteur le lit et ce même si l'interpréteur est entrain de
+compiler un nouveau mot. Les seuls mot Forth immédiats que l'on connaît à ce
+niveau du document sont le mot ORANGE(&lpar;) pour les commentaires et
+le mot ORANGE(;) qui termine la définition d'un mot et accessoirement finalise le
+Smudge bit. S'il n'avait pas été immédiat l'interpréteur l'aurait ajouté dans
+la définition du mot en cours.  Il faut pouvoir indiquer au compilateur quand
+s'arrêter.;,
 
 et le dernier bit toujours à 1 servant de séparateur entre les entrées
 du dictionnaire (soit valant 80 en base 16). Il permet de retrouver le
 début de définition d'un mot et donc de pouvoir séparer plus facilement
 les mots entre eux.)),
 
-STRONG(Nom :) est le nom du mot Forth et le nombre de charactère ASCII consécutifs est
+RED(Nom) est le nom du mot Forth et le nombre de caractère ASCII consécutifs est
 variable et est donné par l'information STRONG(Taille:). Le nombre max de caractère
 est donc 2<sup>5</sup>-1.,
 
-Pointeur vers le mot précédent: STRONG([[[LINK]]] POINTER :) est
+GREY(Pointeur vers le mot précédent): STRONG([[[LINK]]] POINTER :) est
 l'adresse de l'entrée précédente du dictionnaire. Les mots Forth sont
 stockés dans le dictionnaire comme une liste simplement chaînée et dont l'interpréteur
 maintient automatiquement la tête de la liste. L'interpréteur peut ainsi savoir si
 un mot existe. Les adresses peut être relatives ou absolues (la
 première ayant la bonne propriété de permettre de déplacer un bloc
 mémoire du dictionnaire sans devoir changer l'ensemble des adresses). Le nombre
-d'octets d'une adresse dépend de l'architecture choisie[[,]]ici 16
+d'octets d'une adresse dépend de l'architecture choisie[[,]] ici 16
 bits et par conséquent la taille d'un dictionnaire est
 2<sup>16</sup>-1 soit 64 Ko.,
 
-STRONG(Définition :) est une suite d'adresses pointant sur les mots
-déjà existants du dictionnaire[[,]] que l'on nommera par convention Code
-Field Address (CFA).)
+GREEN(Token) ou XT en abrégé (execution token). Dépend de l'implémentation de
+l'interpréteur: certains Forth (comme le mien écrit en C) est un simple
+identifiant.,
+
+GREEN(Définition :) est une suite de tokens chacun identifiant un mot déjà
+existant et compilé dans le dictionnaire[[,]] que l'on nommera par convention
+Code Field Address (CFA).)
 
 <p>Certaines adresses sont importantes en Forth et possèdent un nom :</p>
 LIST(STRONG(NFA:) Name Field Address pointe sur l'entrée d'un
 mot;,
 
-STRONG(LFA:) Link Field Address pointe sur l'emplacement contenant
-l'adresse du mot précédent. On rappelle qu'elle sert à parcourir les
-entrées du dictionnaire et savoir si un mot est connu de
-l'interpréteur. Les mots qui ont leur Smudge bit;,
+STRONG(LFA:) Link Field Address pointe sur l'emplacement contenant l'adresse du
+mot défini précédemment. On rappelle qu'elle sert à parcourir les entrées du
+dictionnaire et savoir si un mot est connu de l'interpréteur. Les mots qui ont
+leur Smudge bit sont ignorés mais quand même traversés. Le dernier mot stocké
+(et donc le premier cherché) est référencé par le mot Forth STRONG(LATEST);,
 
-STRONG(CFA:) Code Field Address pointe sur le début de la
-définition d'un mot. Il ne faut pas le confondre avec LFA car il sert
-à déplacer le pointeur d'interprétation de l'interpréteur (pointeur
-sur le mot à interprété). Il faut le voir comme une sorte
-d'identifiant sur les mots sorte de bytecode/opcode d'une machine
-virtuelle java;,
+STRONG(CFA:) Code Field Address pointe sur le début de la définition d'un
+mot. Il ne faut pas le confondre avec LFA car il sert à déplacer le pointeur
+d'interprétation de l'interpréteur (pointeur sur le mot à interprété). Il faut
+le voir comme une sorte d'identifiant sur les mots sorte de bytecode d'une
+machine virtuelle java;,
 
 STRONG(PFA:) Parameter Field Address pointe sur le second
 emplacement de la définition.)
 
-<p>A partir d'un CFA donné, grâce au bit toujours mis à 1, il est
+A partir d'un PFA, grâce au bit toujours mis à 1, il est
 possible d'atteindre le début de l'entrée en décrémentant la valeur de
 l'adresse et en appliquant au contenu de l'adresse l'opération OU
-bit à bit avec la valeur hexadécimale 80.</p>
-
-<p>ICON_BUILD Le script suivant :</p>
-CODE[]RED(: CFA) GREEN(2) GREY(-) ORANGE(;) GREY(( PFA -- CFA))
+bit à bit avec la valeur hexadécimale 80. Par exemple :</p>
+CODE[]
+RED(: CFA) GREEN(2) GREY(-) ORANGE(;) GREY(( PFA -- CFA))
 RED(: LFA) GREEN(2) GREY(-) ORANGE(;) GREY(( CFA -- LFA))
-RED(: NFA) GREY(( CFA -- LFA))
-FIXMEEEEEEEEEEEEE
-GREEN(2) GREY(-) ORANGE(;)
+RED(: NFA) GREY(( PFA -- NFA))
+    GREEN(4) GREY(-) ORANGE(;)
+    BEGIN
+       DUP
+       80 AND 0=
+    WHILE
+       1 -
+    REPEAT
+;
 END_CODE
+
+<p>La primitive STRONG(') appelée tick extrait du flux d'entrée le mot suivant,
+cherche sa présence dans le dictionaire est place son token sur la pile de
+données. Le mot STRONG(EXECUTE) consomme ce token et l'exécute. Par exemple le code suivant:</p>
+CODE[]BLUE(42) GREY(' DUP) EXECUTE . . END_CODE
+
+<p>Place l'execution token du mot DUP sur la
+pile. EXECUTE ... l'execute. L'entier 42 est dupliqué. Il y a désormais deux
+fois le noimbre 42 qui seroont tour à tour affiché. Dans cet exemple
+particulier, on aurait simplement pu faire 42 DUP . . mais ces mots ont quand
+même leur utilité.</p>
 
 <p>Il faut distinguer deux types de mots Forth:
 LIST(Les mots primitifs qui sont présents dans le coeur du langage et qui appellent le code
 exécutable soit assembleur soit en C. Par exempl le mot DUP appelera l'assembleur i386
-CODE[]
-mov (%esp)[,]%eax  // duplicate top of stack
+CODE[]mov (%esp)[,]%eax  // duplicate top of stack
 push %eax
 END_CODE,
 Les mots non primitifs définis par les mots Forth :)</p>
